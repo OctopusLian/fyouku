@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html data-pay="w3">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <meta name="keyword" content="慕优酷" /> 
+  <meta name="description" content="慕优酷" /> 
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" /> 
+   
+	<link rel="Shortcut Icon" href="/static/index/img/favicon.ico">
+  <title>创作中心 - 慕优酷</title> 
+  <style id="dynamic_theme_custom_style">:root {--body-bg-color:#16161A;--area-bg-color:#1e1e24;--area-bg-color2:rgba(255,255,255,0.05);--btn-color:rgba(255,255,255,0.6);--title-color:rgba(255,255,255,0.87);--default-text-color:rgba(255,255,255,0.38);--default-primary-color:#0D9BFF;--btn-bg-color:#23232C;}</style>
+  
+  <link rel="stylesheet" href="/static/index/css/extra.chunk.css" />
+  <script src='/static/index/js/jquery-3.4.1.min.js' type='text/javascript'></script>
+  <script src='/static/index/js/layer/layer.js' type='text/javascript'></script>
+
+  <script src="/static/index/js/aliyun-upload-sdk/aliyun-upload-sdk-1.5.0.min.js"></script>
+  <script src="/static/index/js/aliyun-upload-sdk/lib/es6-promise.min.js"></script>
+  <script src="/static/index/js/aliyun-upload-sdk/lib/aliyun-oss-sdk-5.3.1.min.js"></script>
+ 
+  <style type="text/css">div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0}fieldset,img{border:0}:focus{outline:0}address,caption,cite,code,dfn,em,strong,th,var,optgroup{font-style:normal;font-weight:normal}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}abbr,acronym{border:0;font-variant:normal}input,button,textarea,select,optgroup,option{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit}code,kbd,samp,tt{font-size:100%}input,button,textarea,select{*font-size:100%}ol,ul{list-style:none}table{border-collapse:collapse;border-spacing:0}caption,th{text-align:left}sup,sub{font-size:100%;vertical-align:baseline}:link,:visited,ins{text-decoration:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}#checkout_counter_popup{font-family:"PingFang SC","Avenir Next","Avenir","Helvetica Neue",sans-serif !important;box-sizing:border-box}#checkout_counter_popup div,#checkout_counter_popup h1,#checkout_counter_popup h2,#checkout_counter_popup ul,#checkout_counter_popup li,#checkout_counter_popup ol,#checkout_counter_popup span,#checkout_counter_popup a,#checkout_counter_popup table,#checkout_counter_popup p,#checkout_counter_popup input,#checkout_counter_popup button,#checkout_counter_popup tr,#checkout_counter_popup td,#checkout_counter_popup th,#checkout_counter_popup img{box-sizing:border-box}#checkout_counter_popup *:before,#checkout_counter_popup *:after{box-sizing:inherit}#checkout_counter_mask{position:fixed;left:0;top:0;width:100%;height:100%;background:#000;opacity:.5;filter:alpha(opacity=50);z-index:9998}#checkout_counter_popup{position:fixed;top:50%;left:50%;width:820px;height:682px;background-color:#ffffff;z-index:9999;border-radius:3px;transform:translate(-50%, -50%) scale(1);-webkit-transform:translate(-50%, -50%) scale(1);-moz-transform:translate(-50%, -50%) scale(1);-o-transform:translate(-50%, -50%) scale(1);-ms-transform:translate(-50%, -50%) scale(1)}[data-pay="w1"] #checkout_counter_popup{transform:translate(-50%, -50%) scale(0.9);-webkit-transform:translate(-50%, -50%) scale(0.9);-moz-transform:translate(-50%, -50%) scale(0.9);-o-transform:translate(-50%, -50%) scale(0.9);-ms-transform:translate(-50%, -50%) scale(0.9)}[data-pay="w2"] #checkout_counter_popup{transform:translate(-50%, -50%) scale(0.8);-webkit-transform:translate(-50%, -50%) scale(0.8);-moz-transform:translate(-50%, -50%) scale(0.8);-o-transform:translate(-50%, -50%) scale(0.8);-ms-transform:translate(-50%, -50%) scale(0.8)}[data-pay="w3"] #checkout_counter_popup{transform:translate(-50%, -50%) scale(0.75);-webkit-transform:translate(-50%, -50%) scale(0.75);-moz-transform:translate(-50%, -50%) scale(0.75);-o-transform:translate(-50%, -50%) scale(0.75);-ms-transform:translate(-50%, -50%) scale(0.75)}.cc_header{height:60px;background:rgba(32,33,35,0.9);border-top-left-radius:3px;border-top-right-radius:3px}#cch_member_info{display:inline-block;height:60px}.cch_send_gift{display:none;float:right;margin-top:17px;margin-right:35px;padding-left:31.5px;height:25px;line-height:25px;font-size:16px;color:#EDD797;background-position:0 0;background-repeat:no-repeat;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAYCAYAAAAPtVbGAAABWWlDQ1BJQ0MgUHJvZmlsZQAAKJFjYGBSSSwoyGFhYGDIzSspCnJ3UoiIjFJgv8/AxcDHwMvAwWCZmFxc4BgQ4ANUwgCjUcG3awyMIPqyLsisp7v5ZqTvdTvrvc8lb6906QxM9SiAKyW1OBlI/wHi1OSCohIGBsYUIFu5vKQAxO4AskWKgI4CsueA2OkQ9gYQOwnCPgJWExLkDGTfALIVkjMSgWYw/gCydZKQxNOR2FB7QYDbJbO4ICexUiHAmIBryQAlqRUlINo5v6CyKDM9o0TBERhKqQqeecl6OgpGBoamDAygMIeo/hwIDktGsTMIseb7DAy2+////78bIea1n4Fhozkw+HYixDQsGBgEuRkYTuwsSCxKBAsxAzFTWhoDwydgePEGMDAIb2Ng4PxTnGZsBJZn5HFiYGC99///ZzUGBvbJDAx/J/z//3vR//9/FwM132FgOJAHAEf/Z5tAjj9dAAADoElEQVRIDY1Va0gUURQ+d2bW1kc+QFMyEwMpoTLtIQhB9SMiwcQfPX8VkVEk9ICkX9HPXj+K/kQJFT0JEXoZPQh616ZYEJRSkUUimq9Wd3dm7u2cuzPj7O5s7YXZe++553zfPefcc5aBx3hzbXsjU9hxBuyjpvn2LWo889lDTYr6XpxMD439PAbANgODtzBndn15eXPYra+4N7QOXNmRzwW/IDgvE4LXmYb+qrtt56p4Pdr33j8wIzj64ykXYrcAkSeEWA1f+vbG6yaQ6Dy8DQmyOOcgP8HzdIN3dLU1rXMbE0FY15+g7mIEB/qig+9y69E6gYRz0RA1QCsVatGrZgCuCVPc6LrZtJaM3t9uyZuYDD1EggrBxSOWrhRguB7TGVqV9DxoqaK1PWJIeu7umYa3X0IeoPG3mvWtL2s2tp5Gwy1MUVlBaVn7+NfWzqLS4oDPn74A797uU3nd3JUnBgXwDmlHHgmz1iagWXNv+geG5gtgPiRAMZuwz5ZuOHd1pOfsQcaUSj2iVzFFgdyiYlPh5uHC6v0yyRiBCUZWDH8Fr7ZtaXZIxKbqhUOB72vGc/ydYPJMVTfFn/ry86TE5pRkC19apWEYMvb4IPAhgcp6v19HneekY9x6XRyZmf8JNDWogcgQWxYvYJfffZD2YteKLBgeu4bWdSTwGryiDMJbG8BEEtM0wdB1IELo+wWFlzq8TKIyxu5AXvZGDX6PHkVJUgLSFghIoARORDRzJAMdif416OKIr6HfjWC/viQGbDQIRiQSJUASm8g3Fkxi4RIjPuaEhfCuLqnHEh+CbnlhE9CcMTLuoRwvYiEFc3ExXhy/p7oxKQ/ojfyQQJJSyP43EF+BeTlHsCRPoW5Sd4iEQCkvcqbQybz8MydC4iI+PW05fi6fMa6pahYojsg+Au5Pg+FV9PSj96B6o9JOGxyG7ECPo+csMLyGaf4pfjownWRTdYJVHkniPr2k/lyfLDQqNgWLkebM8CT4QzEN1+GRRWntYtqKo+GxkM2S2g16YLcP7F0emokix5PEo1hJtGlSlOyQYeeNVUm6S5mEbm+HgMIlvUnRk5TD5fbACVeKrqRIEv1TmgK38pJiwKZIBDit3Su4RGB/5JX0zMqPlz7yO3hTJAwCnsqWkAhoELhNhv/t1qnH5MJzkSiHMLPej97CoDZPBP/1hHAY4lnDIZn1bKAbq2wZvqB72JmHbQWa6b5ucHud4AnaSXvEkXgWyF+spTF1ZurTYQAAAABJRU5ErkJggg==)}.cchmi_icon{float:left;display:inline-block;margin:11px 0 11px 29px;width:38px;height:38px;border-radius:50%}.cchmi_name{float:left;display:inline-block;margin-left:7px;height:60px;line-height:60px;font-size:18px;color:#FFFFFF}.cchmi_vip_level{display:inline-block;margin:17px 0 18px 10px;padding:0 10px;height:25px;line-height:25px;font-size:14px;color:#1C1C1C;background-image:linear-gradient(-234deg, #DAB873 0%, #D1AF6A 20%, #AD8B46 100%);border-radius:12px 0 12px 0}.cchmi_login{display:inline-block;margin:15px 0 15px 20px;padding:0 25px;height:30px;line-height:30px;font-size:15px;color:#292929;border-radius:25px;background-color:#e3b561;background-image:linear-gradient(180deg, #e8c98a, #e3b662);cursor:pointer;border:none}.cchmi_login:focus{outline:none}.cc_popup_close{float:right;margin-top:22px;margin-right:28px;width:15px;height:15px;cursor:pointer;background-position:0 0;background-repeat:no-repeat;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAABWWlDQ1BJQ0MgUHJvZmlsZQAAKJFjYGBSSSwoyGFhYGDIzSspCnJ3UoiIjFJgv8/AxcDHwMvAwWCZmFxc4BgQ4ANUwgCjUcG3awyMIPqyLsisp7v5ZqTvdTvrvc8lb6906QxM9SiAKyW1OBlI/wHi1OSCohIGBsYUIFu5vKQAxO4AskWKgI4CsueA2OkQ9gYQOwnCPgJWExLkDGTfALIVkjMSgWYw/gCydZKQxNOR2FB7QYDbJbO4ICexUiHAmIBryQAlqRUlINo5v6CyKDM9o0TBERhKqQqeecl6OgpGBoamDAygMIeo/hwIDktGsTMIseb7DAy2+////78bIea1n4Fhozkw+HYixDQsGBgEuRkYTuwsSCxKBAsxAzFTWhoDwydgePEGMDAIb2Ng4PxTnGZsBJZn5HFiYGC99///ZzUGBvbJDAx/J/z//3vR//9/FwM132FgOJAHAEf/Z5tAjj9dAAAA+ElEQVQoFaWRoRLCMAyGaWY2g8biZjkkah6J4Rmm9iCTewYMEg1PwB0Sh8VObWol/27ZtSMdgt51XZN8f5LGlGV5tdYukyTZ53n+XvxYVVWt2rY9c9iLAPLPlg03OObYAbwxs+O4NSGjMebJhnROwAFTxMdxfDDIpDgyt4WQv4fnBEIgmBHWBIjo2HXdCS0NpXoVebAiwJxlru/RAxFL+LgLvSIjbANocXffQOK/YPSIUiUAArjDLjY5PXj6OFEUbVAyC6hjHOEpyHPMiqJ44AwJ/DdnLaP2OFocNU1zQU+hccjjQNBtARx6rnnf4dAyCoxTBBDPu/4An/YSZaVURhcAAAAASUVORK5CYII=)}#cch_coin_count{float:right;margin-right:40px;height:60px;line-height:60px;font-size:18px;color:#828282}#cc_err_hint{display:none;position:fixed;top:60px;padding-left:13px;width:100%;height:32px;line-height:32px;font-size:14px;color:#5D4C15;background:#F3E4AB;transform:translate3d(0);-webkit-transform:translate3d(0);-moz-transform:translate3d(0);-o-transform:translate3d(0);-ms-transform:translate3d(0);background-position:797px 9px;background-repeat:no-repeat;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAABWWlDQ1BJQ0MgUHJvZmlsZQAAKJFjYGBSSSwoyGFhYGDIzSspCnJ3UoiIjFJgv8/AxcDHwMvAwWCZmFxc4BgQ4ANUwgCjUcG3awyMIPqyLsisp7v5ZqTvdTvrvc8lb6906QxM9SiAKyW1OBlI/wHi1OSCohIGBsYUIFu5vKQAxO4AskWKgI4CsueA2OkQ9gYQOwnCPgJWExLkDGTfALIVkjMSgWYw/gCydZKQxNOR2FB7QYDbJbO4ICexUiHAmIBryQAlqRUlINo5v6CyKDM9o0TBERhKqQqeecl6OgpGBoamDAygMIeo/hwIDktGsTMIseb7DAy2+////78bIea1n4Fhozkw+HYixDQsGBgEuRkYTuwsSCxKBAsxAzFTWhoDwydgePEGMDAIb2Ng4PxTnGZsBJZn5HFiYGC99///ZzUGBvbJDAx/J/z//3vR//9/FwM132FgOJAHAEf/Z5tAjj9dAAAA+ElEQVQoFaWRoRLCMAyGaWY2g8biZjkkah6J4Rmm9iCTewYMEg1PwB0Sh8VObWol/27ZtSMdgt51XZN8f5LGlGV5tdYukyTZ53n+XvxYVVWt2rY9c9iLAPLPlg03OObYAbwxs+O4NSGjMebJhnROwAFTxMdxfDDIpDgyt4WQv4fnBEIgmBHWBIjo2HXdCS0NpXoVebAiwJxlru/RAxFL+LgLvSIjbANocXffQOK/YPSIUiUAArjDLjY5PXj6OFEUbVAyC6hjHOEpyHPMiqJ44AwJ/DdnLaP2OFocNU1zQU+hccjjQNBtARx6rnnf4dAyCoxTBBDPu/4An/YSZaVURhcAAAAASUVORK5CYII=);background-size:14px 14px;cursor:pointer}#cc_mem_types{height:70px}#cc_body{height:552px;overflow:auto}.ccmt_item{float:left;overflow:hidden;height:70px;background:#EFEFEF;text-align:center;cursor:pointer}.ccmt_item.current{background:#fff}.ccmt_item.ccmt_single{box-shadow:0 0 4px #dcdcdc inset}.ccmt_item .ccmt_name{display:inline-block;margin:8px auto 0;padding:0 0 0 35px;height:33px;line-height:33px;font-size:20px;background-position:0 3px;background-size:26px 26px;background-repeat:no-repeat}.ccmt_item .ccmt_desc{margin-top:3px;font-size:12px}.ccmt_item_coin{padding:12px 0 13px 30px;width:820px;height:70px}.ccmt_item_coin .ccmt_name{height:25px;line-height:25px;font-size:18px}.ccmt_item_coin .ccmt_desc{height:20px;line-height:20px;font-size:14px}#cc_products{min-height:230px}@font-face{font-family:'AkrobatWeb';src:url("https://g.alicdn.com/youkuvip_fe/vip-h5-assets/0.0.159/font/Akrobat-ExtraBold.otf") format("opentype")}.ccp_top_desc{margin-top:10px;padding:0 30px;height:25px;overflow:hidden}.ccp_top_desc .ccptd_title{font-size:18px;line-height:25px;color:#000}.ccp_top_desc .ccp_activate{float:right;font-size:16px;line-height:25px;color:#000}.ccp_one_item_list,.ccp_two_item_list,.ccp_three_item_list,.ccp_four_item_list{margin-top:18px;height:138px}.ccp_one_item_list,.ccp_two_item_list{width:100%}.ccp_one_item_list .ccpoil_product,.ccp_two_item_list .ccpoil_product{position:relative;margin:auto;height:100%;border:1px solid #E0E0E0;cursor:pointer}.ccp_one_item_list .ccpoil_product .ccpoil_wrapper,.ccp_two_item_list .ccpoil_product .ccpoil_wrapper{position:absolute;display:inline-block;height:48px}.ccp_one_item_list .ccpoil_product .ccpoil_currency,.ccp_one_item_list .ccpoil_product .ccpoil_final_price,.ccp_one_item_list .ccpoil_product .ccpoil_origin_price,.ccp_two_item_list .ccpoil_product .ccpoil_currency,.ccp_two_item_list .ccpoil_product .ccpoil_final_price,.ccp_two_item_list .ccpoil_product .ccpoil_origin_price{vertical-align:bottom;margin-bottom:0;display:inline-block;font-weight:lighter}.ccp_one_item_list .ccpoil_product .ccpoil_currency,.ccp_two_item_list .ccpoil_product .ccpoil_currency{font-size:19px;line-height:26px;color:#896623}.ccp_one_item_list .ccpoil_product .ccpoil_final_price,.ccp_two_item_list .ccpoil_product .ccpoil_final_price{font-size:48px;line-height:48px;height:48px;color:#EBAF5B;font-family:"AkrobatWeb";letter-spacing:0}.ccp_one_item_list .ccpoil_product .ccpoil_origin_price,.ccp_two_item_list .ccpoil_product .ccpoil_origin_price{font-size:16px;line-height:23px;color:#626262;text-decoration:line-through}.ccp_one_item_list .ccpoil_product .ccpoil_ad,.ccp_two_item_list .ccpoil_product .ccpoil_ad{display:none;position:absolute;display:inline-block;top:-10px;width:46px;height:21px;background-size:cover}.ccp_one_item_list .ccpoil_product .ccpoil_ad_left_top,.ccp_two_item_list .ccpoil_product .ccpoil_ad_left_top{position:absolute;display:inline-block;padding:0 6px;top:-12px;left:0;height:22px;line-height:22px;color:#fff;background:#FF6F3B;border-radius:9px 0 9px 0}.ccp_one_item_list .ccpoil_product.current,.ccp_two_item_list .ccpoil_product.current{background:#FFF7EB;border:1px solid #E8C895}.ccp_one_item_list .ccpoil_product.current .ccpoil_product_name,.ccp_two_item_list .ccpoil_product.current .ccpoil_product_name{color:#5B3301}.ccp_one_item_list .ccpoil_product.current .ccpoil_currency,.ccp_two_item_list .ccpoil_product.current .ccpoil_currency{color:#896623}.ccp_one_item_list .ccpoil_product.current .ccpoil_origin_price,.ccp_two_item_list .ccpoil_product.current .ccpoil_origin_price{color:#626262}.ccp_one_item_list .ccpoil_product.current .ccpoil_marketing,.ccp_two_item_list .ccpoil_product.current .ccpoil_marketing{color:#6D4F17}.ccp_one_item_list .ccpoil_product{width:486px}.ccp_one_item_list .ccpoil_product_wrapper{position:absolute;top:50%;left:57px;width:225px;transform:translate(0, -50%);-webkit-transform:translate(0, -50%);-moz-transform:translate(0, -50%);-o-transform:translate(0, -50%);-ms-transform:translate(0, -50%)}.ccp_one_item_list .ccpoil_product_name{font-size:20px;font-weight:bold;color:#6B6B6B;line-height:24px}.ccp_one_item_list .ccpoil_marketing{font-size:12px;line-height:16px;color:#000}.ccp_one_item_list .ccpoil_wrapper{height:48px;left:283px;top:42px;min-width:200px;max-width:281px;text-align:center}.ccp_one_item_list .ccpoil_ad{top:-9px;left:460px}.ccp_two_item_list{padding-left:30px}.ccp_two_item_list .ccpoil_product{display:inline-block;margin-right:17px;width:371px;vertical-align:top}.ccp_two_item_list .ccpoil_product_name{position:absolute;top:53px;left:25px;width:185px;font-size:20px;line-height:1;font-weight:bold;color:#6B6B6B;text-overflow:ellipsis;overflow:hidden;white-space:nowrap}.ccp_two_item_list .ccpoil_marketing{position:absolute;font-size:12px;line-height:1;color:#000}.ccp_two_item_list .ccpoil_wrapper{height:48px;left:214px;top:42px;width:155px;text-align:center}.ccp_two_item_list .ccpoil_marketing{top:77px;left:25px}.ccp_two_item_list .ccpoil_ad{left:341px}.ccp_three_item_list .ccpoil_product{width:230px}.ccp_three_item_list .ccpoil_ad{left:200px}.ccp_three_item_list .ccpoil_color_marketing{left:0;bottom:0}.ccp_four_item_list .ccpoil_product{width:167px}.ccp_four_item_list .ccpoil_ad{left:143px}.ccp_four_item_list .ccpoil_color_marketing{left:0;bottom:0}.ccp_three_item_list,.ccp_four_item_list{width:100%}.ccp_three_item_list .ccpoil_product,.ccp_four_item_list .ccpoil_product{position:relative;float:left;margin-left:30px;height:138px;border:1px solid #E0E0E0;border-radius:2px;cursor:pointer}.ccp_three_item_list .ccpoil_product .ccpoil_product_name,.ccp_four_item_list .ccpoil_product .ccpoil_product_name{position:absolute;top:12px;left:0;padding:0 10px;width:100%;height:28px;line-height:28px;text-align:center;font-size:20px;font-weight:bold;color:#6B6B6B;text-overflow:ellipsis;overflow:hidden;white-space:nowrap}.ccp_three_item_list .ccpoil_product .ccpoil_price,.ccp_four_item_list .ccpoil_product .ccpoil_price{position:absolute;top:46px;width:100%;height:40px;line-height:40px;text-align:center}.ccp_three_item_list .ccpoil_product .ccpoil_currency,.ccp_three_item_list .ccpoil_product .ccpoil_final_price,.ccp_three_item_list .ccpoil_product .ccpoil_origin_price,.ccp_four_item_list .ccpoil_product .ccpoil_currency,.ccp_four_item_list .ccpoil_product .ccpoil_final_price,.ccp_four_item_list .ccpoil_product .ccpoil_origin_price{display:inline-block;vertical-align:bottom;font-weight:lighter}.ccp_three_item_list .ccpoil_product .ccpoil_currency,.ccp_four_item_list .ccpoil_product .ccpoil_currency{margin-bottom:0;margin-left:-3px;font-size:16px;line-height:23px;color:#896623}.ccp_three_item_list .ccpoil_product .ccpoil_final_price,.ccp_four_item_list .ccpoil_product .ccpoil_final_price{margin-left:-3px;font-size:40px;line-height:40px;color:#EBAF5B;font-family:"AkrobatWeb";letter-spacing:0}.ccp_three_item_list .ccpoil_product .ccpoil_origin_price,.ccp_four_item_list .ccpoil_product .ccpoil_origin_price{font-size:16px;line-height:20px;color:#626262;text-decoration:line-through}.ccp_three_item_list .ccpoil_product .ccpoil_marketing,.ccp_four_item_list .ccpoil_product .ccpoil_marketing{position:absolute;display:block;width:100%;top:103px;margin:auto;font-size:14px;line-height:1;text-align:center;color:#000}.ccp_three_item_list .ccpoil_product .ccpoil_color_marketing,.ccp_four_item_list .ccpoil_product .ccpoil_color_marketing{position:absolute;display:block;padding:0 8px;width:100%;height:30px;line-height:30px;font-size:16px;color:#7F6746;text-align:center;background-color:#F9EEDA;text-overflow:ellipsis;overflow:hidden;white-space:nowrap}.ccp_three_item_list .ccpoil_product .ccpoil_ad,.ccp_four_item_list .ccpoil_product .ccpoil_ad{display:none;position:absolute;display:inline-block;top:-10px;width:46px;height:21px;background-size:cover}.ccp_three_item_list .ccpoil_product .ccpoil_ad_left_top,.ccp_four_item_list .ccpoil_product .ccpoil_ad_left_top{position:absolute;display:inline-block;padding:0 6px;top:-11px;left:0;height:22px;line-height:22px;color:#fff;background:#FF6F3B;border-radius:9px 0 9px 0}.ccp_three_item_list .ccpoil_product.current,.ccp_four_item_list .ccpoil_product.current{background:#FFF7EB;border:1px solid #E8C895}.ccp_three_item_list .ccpoil_product.current .ccpoil_product_name,.ccp_four_item_list .ccpoil_product.current .ccpoil_product_name{color:#5B3301}.ccp_three_item_list .ccpoil_product.current .ccpoil_marketing,.ccp_four_item_list .ccpoil_product.current .ccpoil_marketing{color:#6D4F17}.ccp_three_item_list .ccpoil_product.current .ccpoil_color_marketing,.ccp_four_item_list .ccpoil_product.current .ccpoil_color_marketing{color:#5b3301;background-color:#E6B570;background-image:linear-gradient(to right, #F5D59A 100%, #E6B570 100%)}.ccp_one_product_info{margin-top:12px;padding:0 30px;height:20px;text-align:center;text-overflow:ellipsis;overflow:hidden;white-space:nowrap}.ccp_one_product_info .ccppi_desc_policy,.ccp_one_product_info .ccppi_extro{vertical-align:top;font-size:14px;line-height:20px}.ccp_one_product_info .ccppi_desc_policy{text-decoration:none;color:#4697cc}.ccp_one_product_info .ccppi_name{display:none;font-weight:bold}.ccp_one_product_info .ccppi_info{color:#896623}.ccp_mtone_product_info{margin-top:12px;padding:0 30px;height:20px}.ccp_mtone_product_info .ccppi_desc_policy{text-decoration:none;color:#4697cc}.ccp_mtone_product_info .ccppi_desc_policy,.ccp_mtone_product_info .ccppi_extro{vertical-align:top;font-size:14px;line-height:20px}.ccp_mtone_product_info .ccppi_extro_box{display:inline-block;width:675px;height:20px;vertical-align:top;text-overflow:ellipsis;overflow:hidden;white-space:nowrap}.ccp_mtone_product_info .ccppi_name{display:none;font-weight:bold}.ccp_mtone_product_info .ccppi_info{vertical-align:top;color:#896623}.ccp_mtone_product_info .ccppi_more_item_icon,.ccp_mtone_product_info .ccppi_more_item_btn{float:right;display:inline-block;vertical-align:top}.ccp_mtone_product_info .ccppi_more_item_icon_up,.ccp_mtone_product_info .ccppi_more_item_icon_down{width:10px;height:10px;border-top:2px solid #858585;border-left:2px solid #858585;border-right:0;border-bottom:0}.ccp_mtone_product_info .ccppi_more_item_icon_up{margin-top:7px;transform:rotate(45deg);-webkit-transform:rotate(45deg);-moz-transform:rotate(45deg);-o-transform:rotate(45deg);-ms-transform:rotate(45deg);cursor:pointer}.ccp_mtone_product_info .ccppi_more_item_icon_down{margin-top:2px;transform:rotate(223deg);-webkit-transform:rotate(223deg);-moz-transform:rotate(223deg);-o-transform:rotate(223deg);-ms-transform:rotate(223deg);cursor:pointer}.ccp_mtone_product_info .ccppi_more_item_btn{margin-left:10px;cursor:pointer;line-height:20px}.cc_pay_title{margin-top:5px;padding-left:30px;height:20px;line-height:20px;font-size:18px;color:#000000}.cc_pay_ways{margin:7px auto 0;width:760px;height:235px;border:1px solid #E7E7E7;overflow:hidden}#ccpw_navs{float:left;width:133px;height:235px;background:#EEEFF3}#ccpw_navs .ccpw_nav_item{padding-left:57px;height:51px;line-height:51px;background-position:29px 15px;background-repeat:no-repeat;background-size:20px 20px;color:#555;font-size:12px;cursor:pointer}#ccpw_navs .ccpw_nav_item.current{background-color:#fff}#ccpw_form{position:relative;height:235px;overflow:hidden}.ccpwf_qrcode_bg{position:absolute;top:31px;left:122px;width:150px;height:150px;background:url("https://img.alicdn.com/tfs/TB1TIYpbsLJ8KJjy0FnXXcFDpXa-150-150.png") 50% no-repeat;cursor:pointer}.ccpwf_qrcode{position:absolute;top:11px;left:11px;width:128px;height:128px;background:#dcdcdc;cursor:pointer}.ccpwf_alipay_weixin{position:absolute;top:190px;left:122px;padding-left:56px;height:26px;line-height:26px;font-size:12px;color:#999;background-position:6px 3px;background-repeat:no-repeat;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAUCAYAAAD2rd/BAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozMTIxQjJERkE2OTAxMUU3OUFEQUEzMkRGMDNCMUQwMSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozMTIxQjJFMEE2OTAxMUU3OUFEQUEzMkRGMDNCMUQwMSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjMxMjFCMkREQTY5MDExRTc5QURBQTMyREYwM0IxRDAxIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjMxMjFCMkRFQTY5MDExRTc5QURBQTMyREYwM0IxRDAxIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+cS4RgwAAB7BJREFUeNqcV2ts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)}.ccpwf_price{position:absolute;top:68px;left:280px;height:22px}.ccpwf_price .ccpwfp_label,.ccpwf_price .ccpwfp_final_prize,.ccpwf_price .ccpwfp_origin_price{display:inline-block;vertical-align:bottom;line-height:1}.ccpwf_price .ccpwfp_final_prize{font-size:36px;color:#FF6700}.ccpwf_price .ccpwfp_label{font-size:16px;color:#333333}.ccpwf_price .ccpwfp_origin_price{margin-left:10px;font-size:16px;color:#999}.ccpwf_discount{position:absolute;top:110px;left:280px;height:20px;width:75px;line-height:20px;font-size:14px;color:#9A7E2D;background-position:right 2px;background-repeat:no-repeat;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAABWWlDQ1BJQ0MgUHJvZmlsZQAAKJFjYGBSSSwoyGFhYGDIzSspCnJ3UoiIjFJgv8/AxcDHwMvAwWCZmFxc4BgQ4ANUwgCjUcG3awyMIPqyLsisp7v5ZqTvdTvrvc8lb6906QxM9SiAKyW1OBlI/wHi1OSCohIGBsYUIFu5vKQAxO4AskWKgI4CsueA2OkQ9gYQOwnCPgJWExLkDGTfALIVkjMSgWYw/gCydZKQxNOR2FB7QYDbJbO4ICexUiHAmIBryQAlqRUlINo5v6CyKDM9o0TBERhKqQqeecl6OgpGBoamDAygMIeo/hwIDktGsTMIseb7DAy2+////78bIea1n4Fhozkw+HYixDQsGBgEuRkYTuwsSCxKBAsxAzFTWhoDwydgePEGMDAIb2Ng4PxTnGZsBJZn5HFiYGC99///ZzUGBvbJDAx/J/z//3vR//9/FwM132FgOJAHAEf/Z5tAjj9dAAABZklEQVQoFZVTPUsDQRCdmTMICmoICVqJFhKwk5M0Vv4AbSR+9MHGX+A/0FoLTScYQUSr/AVFlCCIGG1ELMXEwi7ejjubzJG7HFG32Z3Z994Ms28RuhYzU/O5XAQ2G8zgI0CGAT4Q4RaQKumZ0ikiGqXY+/b6rJenDAdnDDynufiOgDVCb2UsX3qRO0d2RPi+ttWycUI8tl28EwwURICkVVfxD0QRkgJtPBM2ng7X2AQn8Qq/xUjeOslwFHj/+AbGhPPQdLjfPbyGZ+HZtsHXzPDQIOzsVRMFjs8vodH8Uqi075M8h2amJ3OwulzoERDiRG4UFhdmFSqTzpC8Y5ixBxXY3a9adYbKxVUPUfDCI2eAbnZHoLhUgK3tIxjPjkQqKlR4fafdagWQSnmKj+wybXSWrB/c9HNWhGUDcVo6vzlv20YjlhPnxEFJsXOYw1ueAJzVrOVEMYmgOeftjjUl57ytl//9VT8716DO/2QzEgAAAABJRU5ErkJggg==)}.ccpwf_discount_info{position:absolute;display:block;padding:5px 10px 5px;top:138px;left:280px;width:304px;max-height:80px;background:#EDD797;border-radius:3px;overflow:auto}.ccpwf_discount_info .ccpwfdi_line{display:block;height:30px;line-height:30px;font-size:14px;color:#000000}.ccpwf_discount_info .ccpwfdi_line .ccpwfdi_name,.ccpwf_discount_info .ccpwfdi_line .ccpwfdi_discount{width:152px}.ccpwf_discount_info .ccpwfdi_line .ccpwfdi_name{text-align:left}.ccpwf_discount_info .ccpwfdi_line .ccpwfdi_discount{text-align:right}.ccpwf_discount_info:before{content:"";position:absolute;top:-0.5em;left:5em;padding:0.6em;background-color:inherit;border:inherit;border-right:0;border-bottom:0;transform:rotate(45deg);-webkit-transform:rotate(45deg);-moz-transform:rotate(45deg);-o-transform:rotate(45deg);-ms-transform:rotate(45deg)}.ccpwf_phone_left,.ccpwf_phone_right{display:inline-block;margin:0;height:233px;box-sizing:border-box;vertical-align:top}.ccpwf_phone_left{padding-left:50px;padding-top:42px;width:345px}.ccpwfpl_phone,.ccpwfpl_vcode{height:35px;line-height:33px;padding-left:20px;font-size:16px;border:1px solid #e2e2e2;box-sizing:border-box}.ccpwfpl_send_code,.ccpwfpl_submit,.ccpwfpl_phone:focus,.ccpwfpl_vcode:focus{outline:none !important}.ccpwfpl_phone{width:300px;border-radius:2px}.ccpwfpl_vcode_line{margin-top:16px;margin-bottom:16px;width:300px;height:35px}.ccpwfpl_vcode,.ccpwfpl_send_code{display:inline-block;margin:0;vertical-align:top;box-sizing:border-box}.ccpwfpl_vcode{width:180px;border-top-left-radius:2px;border-bottom-left-radius:2px}.ccpwfpl_send_code{margin-left:-5px;padding:0;width:119px;height:35px;line-height:33px;font-size:16px;color:#fff;text-align:center;background-color:#ff6600;border:1px solid #ff6600;border-top-right-radius:2px;border-bottom-right-radius:2px;cursor:pointer}.ccpwfpl_send_code_iku{width:117px !important}.ccpwfpl_submit:disabled,.ccpwfpl_send_code:disabled{background:#e2e2e2;color:#333333;border:1px solid #e2e2e2}.ccpwfpl_submit{width:300px;height:35px;line-height:35px;font-size:16px;color:#fff;text-align:center;background:linear-gradient(45deg, #ff9530, #f60);border-radius:2px;border:none;outline:none;cursor:pointer}.ccpwfpl_err_hint{margin-top:10px;color:#D94B42;font-size:14px;line-height:18px}.ccpwf_phone_right{padding-left:24px;padding-top:13px;width:272px}.ccpwf_phone_right p{width:240px;line-height:30px;font-size:14px}.ccpwf_iap_hint{position:absolute;top:120px;left:70px;width:200px;min-height:28px;line-height:28px;font-size:16px;color:red;text-align:center;background-position:6px 3px}.ccpwf_iap_btn{position:absolute;left:90px;top:73px;width:160px;height:40px;line-height:40px;border-radius:20px;background:#007aff;color:#fff;font-size:18px;text-align:center;cursor:pointer}.ccpwf_iap_loading{position:absolute;display:none;left:140px;top:50px;font-size:10px;width:60px;height:60px;border-radius:50%;background:#CCA558;background:-moz-linear-gradient(left, #CCA558 10%, rgba(255,255,255,0) 52%);background:-webkit-linear-gradient(left, #CCA558 10%, rgba(255,255,255,0) 52%);background:-o-linear-gradient(left, #CCA558 10%, rgba(255,255,255,0) 52%);background:-ms-linear-gradient(left, #CCA558 10%, rgba(255,255,255,0) 52%);background:linear-gradient(to right, #CCA558 10%, rgba(255,255,255,0) 52%);position:relative;-webkit-animation:load3 1.2s infinite linear;animation:load3 1.2s infinite linear;-webkit-transform:translateZ(0);-ms-transform:translateZ(0);transform:translateZ(0)}.ccpwf_iap_loading::before{width:50%;height:50%;background:#CCA558;border-radius:100% 0 0 0;position:absolute;top:0;left:0;content:''}.ccpwf_iap_loading::after{background:#fff;width:65%;height:65%;border-radius:50%;content:'';margin:auto;position:absolute;top:0;left:0;bottom:0;right:0}@-webkit-keyframes load3{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes load3{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}#cc_protocols{padding-right:30px;height:45px;text-align:right}#cc_protocols .ccp_item{display:inline-block;margin-top:14px;margin-left:10px;vertical-align:top;font-size:12px;color:#999}#ccp_success{width:820px;height:640px}.ccs_user_icon{display:block;margin:95px auto 0;width:110px;height:110px;border-radius:50%}.ccs_vip_type{margin-top:60px;text-align:center;font-size:24px;color:#333333}.ccs_exptime{margin-top:30px;text-align:center;font-size:18px;color:#999999}.ccs_btns{margin-top:60px;height:50px;text-align:center}.ccs_btns .ccs_libary,.ccs_btns .ccs_rights,.ccs_btns .ccs_back_watching{display:inline-block;margin-right:30px;padding:0 20px;height:50px;line-height:50px;border-radius:25px;font-size:20px;background-color:#ffffff;color:#c1a161;border:1px solid #c1a161}.ccs_btns .ccs_back_watching{margin-right:0;padding:0 40px;cursor:pointer}
+</style>
+ </head> 
+ <body class="mpblack" data-spm="12366999"> 
+  <div id="app">
+   <section class="layout___3prAL ant-layout">
+    <div id="youkuheader">
+     <div class="g-header_3AdmO white_19Dnq">
+     	{{template "header.html" .}} 
+	</div>
+    </div>
+    <main class="antLayoutContent___1AmIG ant-layout-content">
+     <section class="layout___3prAL ant-layout ant-layout-has-sider">
+      <aside class="ant-layout-sider ant-layout-sider-light" style="border-radius: 2px; overflow: hidden; height: fit-content; flex: 0 0 195px; max-width: 195px; min-width: 195px; width: 195px;">
+       <div class="ant-layout-sider-children">
+        <ul parentkey="1" class="ant-menu menu menu_publish ant-menu-light ant-menu-root ant-menu-inline" role="menu">
+         <li class="ant-menu-item" role="menuitem" style="padding-left: 24px;"><a href="/upload">
+           <div class="itemGroup___3ePmF">
+            <i class="itemIcon___2cQUR itemIconUpload"></i>
+            <span class="itemTxt___1hWZD">发布视频</span>
+           </div></a></li>
+        </ul>
+        <ul parentkey="1" class="ant-menu menu menuNormal ant-menu-light ant-menu-root ant-menu-inline" role="menu">
+         <li class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected" role="menuitem">
+          <div class="ant-menu-submenu-title" aria-expanded="true" aria-owns="sub1$Menu" aria-haspopup="true" style="padding-left: 24px;">
+           <div class="itemGroup___3ePmF">
+            <i class="itemIcon___2cQUR itemIconManage"></i>
+            <span class="itemTxt___1hWZD">内容管理</span>
+           </div>
+           <i class="ant-menu-submenu-arrow"></i>
+          </div>
+          <ul id="sub1$Menu" class="ant-menu ant-menu-sub ant-menu-inline" role="menu">
+           <li class="ant-menu-item ant-menu-item-selected" role="menuitem" style="padding-left: 48px;"><a href="/ucenter/video">
+             <div class="itemGroup___3ePmF">
+              <span class="itemTxt___1hWZD">视频管理</span>
+             </div></a></li>
+           <li class="ant-menu-item" role="menuitem" style="padding-left: 48px;"><a href="#">
+             <div class="itemGroup___3ePmF">
+              <span class="itemTxt___1hWZD">播单管理</span>
+             </div></a></li>
+           <li class="ant-menu-item" role="menuitem" style="padding-left: 48px;"><a href="#">
+             <div class="itemGroup___3ePmF">
+              <span class="itemTxt___1hWZD">约稿管理</span>
+             </div></a></li>
+          </ul></li>
+          </ul>
+       </div>
+      </aside>
+      
+      <main id="uploadFile" class="newMainContent ant-layout-content"><div class="ant-spin-nested-loading"><div class="ant-spin-container"><div id="uploadCenter" class="content___2URet"><form id="fileForm" enctype="multipart/form-data"><input type="hidden" id="uid" name="uid" value="0"><input type="file" id="file" name="file" accept="video/*,video/mp4,video/x-m4v,.mkv,.avi,.mov,.mpeg,.mpg,.rm,.mov,.asf,.wmv,.3gp,.flv,.mp4,.m3u8,.ts,.webm,.mxf,.rmvb" style="position: absolute; clip: rect(0px, 0px, 0px, 0px);"></form><form><input type="file" id="file1" accept="video/*,video/mp4,video/x-m4v,.mkv,.avi,.mov,.mpeg,.mpg,.rm,.mov,.asf,.wmv,.3gp,.flv,.mp4,.m3u8,.ts,.webm,.mxf,.rmvb" style="position: absolute; clip: rect(0px, 0px, 0px, 0px);"></form><div class="alertCon___19LWL"><i aria-label="图标: info-circle" class="anticon anticon-info-circle"><svg viewBox="64 64 896 896" focusable="false" class="" data-icon="info-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm32 664c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V456c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272zm-32-344a48.01 48.01 0 0 1 0-96 48.01 48.01 0 0 1 0 96z"></path></svg></i><span>严禁上传违规违法/色情色诱/低俗/广告等视频内容，违者下架视频并封号处理</span></div><div class="uploadBody___2foQN"><div id="uploadCenterLeft" class="uploadWrapper___31j2O"><div class="uwtitle___1GWQX">上传横版短视频</div><div class="uwcontent___1k10A"><div class="uwcLeft___1G6Tj uwcLeftHor___3GLW4"><img class="uwcLeftIcon___1iwTa" src="/static/index/img/TB1VOW6tAL0gK0jSZFtXXXQCXXa-26-21.svg"></div><div class="uwcRight___mgGZM"><span><label class="ant-btn ant-btn-primary uploadBtn___zO_0a" for="file">上传横版短视频</label></span><div class="uwctips___1aOjY">将横版短视频拖拽至框内</div></div></div><p>建议宽高比例为16:9，分辨率1280*720及以上</p><p>视频大小不超过10G</p></div><div id="uploadCenterRight" class="uploadWrapper___31j2O"><div class="uwtitle___1GWQX">上传竖版小视频</div><div class="uwcontent___1k10A"><div class="uwcLeft___1G6Tj uwcLeftVer___Js199"><img class="uwcLeftIcon___1iwTa" src="/static/index/img/TB1VOW6tAL0gK0jSZFtXXXQCXXa-26-21.svg"></div><div class="uwcRight___mgGZM"><span><label class="ant-btn ant-btn-primary uploadBtn___zO_0a" for="file1">上传竖版小视频</label></span><div class="uwctips___1aOjY">将竖版小视频拖拽至框内</div></div></div><p>建议宽高比例为9:16，分辨率720*1280及以上</p><p>视频大小不超过10G</p></div></div></div></div></div></main>
+      <input type="hidden" value="1837537516743266" id="userId">
+      <input type="hidden" value="" id="aliyunVideoId">
+      
+
+      <main id="uploadInfo" class="newMainContent ant-layout-content" data-spm-anchor-id="spmA.spmB.0.i0"><div class="ant-spin-nested-loading"><div class="ant-spin-container"><div class="uploaddetailComponent___2JBOc"><div class="title___tXVth">视频上传</div><div class="processWrapper___lX4-o"><div class="process___2TGPR"><div class="processticket___3uL5W" style="transform: scaleX(1);"></div><div class="processLeft___2MR5S"><div class="pimg___JCchz"><img src="https://gw.alicdn.com/tfs/TB1Jwq2pVT7gK0jSZFpXXaTkpXa-60-60.png"></div><div class="pinfo___AEU8m"><div class="ptitle___3GAJh" id="playUrl"></div><div class="pinfobottom___2od8s"><span>上传完成</span></div></div></div><div class="processRight___3jQeQ"><span class="percent___33fjT">100%</span></div></div></div><div class="mainContent___3BaWS"><form class="ant-form ant-form-horizontal editForm___1yxD2"><div class="mainWrapper___aRwed"><div class="formWrapper___mdwkX"><div class="ant-row ant-form-item"><div class="ant-col ant-col-3 ant-form-item-label"><label for="title" class="ant-form-item-required" title="标题">标题</label></div><div class="ant-col ant-col-21 ant-form-item-control-wrapper"><div class="ant-form-item-control has-success"><span class="ant-form-item-children"><input placeholder="要求不低于8字，不超过80字" type="text" id="title" class="ant-input ant-input-lg" value=""></span><div class="ant-form-extra"><div><span class="titleTips___3EODy">字数：8~80字，三段式描述，审核快，流量高</span><a style="margin-left: 10px; color: rgb(250, 173, 20);">标题规范<i aria-label="图标: info-circle" class="anticon anticon-info-circle" style="margin-left: 5px;"><svg viewBox="64 64 896 896" focusable="false" class="" data-icon="info-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm32 664c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V456c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272zm-32-344a48.01 48.01 0 0 1 0-96 48.01 48.01 0 0 1 0 96z"></path></svg></i></a></div></div></div></div></div><div class="ant-row ant-form-item"><div class="ant-col ant-col-3 ant-form-item-label"><label for="title" class="ant-form-item-required" title="副标题">副标题</label></div><div class="ant-col ant-col-21 ant-form-item-control-wrapper"><div class="ant-form-item-control has-success"><span class="ant-form-item-children"><input placeholder="要求不低于8字，不超过80字" type="text" id="subTitle" class="ant-input ant-input-lg" value=""></span><div class="ant-form-extra"><div><span class="titleTips___3EODy">字数：8~80字，三段式描述，审核快，流量高</span><a style="margin-left: 10px; color: rgb(250, 173, 20);">标题规范<i aria-label="图标: info-circle" class="anticon anticon-info-circle" style="margin-left: 5px;"><svg viewBox="64 64 896 896" focusable="false" class="" data-icon="info-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm32 664c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V456c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272zm-32-344a48.01 48.01 0 0 1 0-96 48.01 48.01 0 0 1 0 96z"></path></svg></i></a></div></div></div></div></div><div class="ant-row ant-form-item"><div class="ant-col ant-col-3 ant-form-item-label"><label class="ant-form-item-required" title="频道">频道</label></div><div class="ant-col ant-col-21 ant-form-item-control-wrapper"><select id="channelId"><option value="1">动漫</option></select></div></div>
+        <div class="ant-row ant-form-item"><div class="ant-col ant-col-3 ant-form-item-label"><label class="ant-form-item-required" title="分类">分类</label></div><div class="ant-col ant-col-21 ant-form-item-control-wrapper"><select id="typeId"><option value="1">少女</option><option value="2">热血</option></select></div></div>
+        <div class="ant-row ant-form-item"><div class="ant-col ant-col-3 ant-form-item-label"><label class="ant-form-item-required" title="地区">地区</label></div><div class="ant-col ant-col-21 ant-form-item-control-wrapper"><select id="regionId"><option value="1">日本</option><option value="2">中国</option><option value="3">美国</option></select></div></div>
+        <div class="ant-row ant-form-item"><div class="ant-col ant-col-3 ant-form-item-label"><label class="" title=" "> </label></div><div class="ant-col ant-col-21 ant-form-item-control-wrapper"><div class="ant-form-item-control"><span class="ant-form-item-children"><div><span><button id="videoInfoButton" type="button" class="ant-btn ant-btn-primary" style="width: 96px; height: 32px; border-radius: 16px;"><span>发 布</span></button></span><span><button type="button" class="ant-btn" style="margin-left: 9px; width: 96px; height: 32px; border-radius: 16px;"><span>取 消</span></button></span></div></span></div></div></div></div><div class="lineCon___AF0-S"><div></div></div></div></form></div></div></div></div></main>
+
+     </section>
+    </main>
+    <div id="youkufooter">
+	{{template "foot.html" .}}
+     </div>
+   </section>
+  </div> 
+  <link type="text/css" rel="stylesheet" href="/static/index/css/ucenter_index.css" /> 
+  <link href="/static/index/css/ucenter_index_4.css" type="text/css" rel="stylesheet" />
+  <script src='/static/index/js/foot.js' type='text/javascript'></script> 
+ </body>
+</html>
+<script>
+//判断登录状态是否存在
+$(function(){
+  $("#uploadFile").show();
+  $("#uploadInfo").hide();
+  var uid = localStorage.getItem("uid");
+	if(!uid){
+		location.href = '/';
+	}
+  $("#uid").val(uid);
+	
+  $("#fileForm").children("input[type=file]").change(function(e){
+    var formData = new FormData($("#fileForm")[0]);  
+    $.ajax({
+      url: '/uploadDo',
+      type: 'POST',
+      data: formData,
+      cache: false,
+      processData: false,
+      contentType: false,
+    }).done(function(data, textStatus) {
+      var jsonObj = eval('(' + data + ')');
+      if (jsonObj.code == 0) {
+        $("#playUrl").text(jsonObj.msg);
+        $("#uploadFile").hide();
+        $("#uploadInfo").show();
+      } else {
+        layer.msg(jsonObj.msg, {icon: 2});
+      }
+    }).fail(function(res, textStatus, error) {
+      try {
+          var body = JSON.parse(res.responseText);
+          layer.msg('error: ' + body.message, {icon: 2});
+      } catch(e) {
+          console.error(e);
+      }
+    });
+  });
+
+  $("#videoInfoButton").click(function() {
+      var playUrl = $("#playUrl").text();
+
+      var channelId = $("#channelId").val();
+      var typeId = $("#typeId").val();
+      var regionId = $("#regionId").val();
+      var title = $("#title").val();
+      var subTitle = $("#subTitle").val();
+      var aliyunVideoId = $("#aliyunVideoId").val()
+      
+      if(playUrl == ''){
+        layer.msg('视频地址不能为空', {icon: 2});
+        return false;
+      }
+      if(title == ''){
+        layer.msg('标题不能为空', {icon: 2});
+        return false;
+      }
+      
+      $.ajax({
+        url: '/uploadInfoDo',
+        data: {
+          playUrl: playUrl,
+          channelId: channelId,
+          typeId: typeId,
+          regionId: regionId,
+          uid: uid,
+          title: title,
+          subTitle: subTitle,
+          aliyunVideoId: aliyunVideoId,
+        },
+        type: 'post',
+        async: false,
+        dataType: 'json',
+        success: function(response) {
+          if (response.code == 0) {
+            layer.msg('视频发布成功', {icon: 1});
+				    setTimeout(function(){ location.href = "/ucenter/video"; }, 1000);
+            return;
+          } else {
+            layer.msg(response.msg, {icon: 2});
+            return;
+          }
+        }
+      });
+    });
+	
+});
+
+ //兼容IE11
+ if (!FileReader.prototype.readAsBinaryString) {
+        FileReader.prototype.readAsBinaryString = function (fileData) {
+           var binary = "";
+           var pt = this;
+           var reader = new FileReader();      
+           reader.onload = function (e) {
+               var bytes = new Uint8Array(reader.result);
+               var length = bytes.byteLength;
+               for (var i = 0; i < length; i++) {
+                   binary += String.fromCharCode(bytes[i]);
+               }
+            //pt.result  - readonly so assign binary
+            pt.content = binary;
+            pt.onload()
+        }
+        reader.readAsArrayBuffer(fileData);
+        }
+    }
+    $(document).ready(function () {
+      /** 
+       * 创建一个上传对象
+       * 使用 UploadAuth 上传方式
+       */
+      function createUploader () {
+        var uploader = new AliyunUpload.Vod({
+          timeout: $('#timeout').val() || 60000,
+          partSize: $('#partSize').val() || 1048576,
+          parallel: $('#parallel').val() || 5,
+          retryCount: $('#retryCount').val() || 3,
+          retryDuration: $('#retryDuration').val() || 2,
+          region: $('#region').val(),
+          userId: $('#userId').val(),
+          // 添加文件成功
+          addFileSuccess: function (uploadInfo) {
+            console.log('addFileSuccess')
+            $('#status').text('添加文件成功, 等待上传...')
+            if(uploader !== null) {
+              uploader.startUpload()
+            }
+            
+            console.log("addFileSuccess: " + uploadInfo.file.name)
+          },
+          // 开始上传
+          onUploadstarted: function (uploadInfo) {
+            // 如果是 UploadAuth 上传方式, 需要调用 uploader.setUploadAuthAndAddress 方法
+            // 如果是 UploadAuth 上传方式, 需要根据 uploadInfo.videoId是否有值，调用点播的不同接口获取uploadauth和uploadAddress
+            // 如果 uploadInfo.videoId 有值，调用刷新视频上传凭证接口，否则调用创建视频上传凭证接口
+            // 注意: 这里是测试 demo 所以直接调用了获取 UploadAuth 的测试接口, 用户在使用时需要判断 uploadInfo.videoId 存在与否从而调用 openApi
+            // 如果 uploadInfo.videoId 存在, 调用 刷新视频上传凭证接口(https://help.aliyun.com/document_detail/55408.html)
+            // 如果 uploadInfo.videoId 不存在,调用 获取视频上传地址和凭证接口(https://help.aliyun.com/document_detail/55407.html)
+            if (!uploadInfo.videoId) {
+              var createUrl = '/aliyun/create/upload/video?title=testvod1&fileName=aa.mp4&BusinessType=vodai&TerminalType=pc&DeviceModel=iPhone9,2&UUID=59ECA-4193-4695-94DD-7E1247288&AppVersion=1.0.0&VideoId=5bfcc7864fc14b96972842172207c9e6'
+              $.get(createUrl, function (data) {
+                var uploadAuth = data.UploadAuth
+                var uploadAddress = data.UploadAddress
+                var videoId = data.VideoId
+                $("#aliyunVideoId").val(data.VideoId)
+                $("#playUrl").text(data.VideoId)
+                uploader.setUploadAuthAndAddress(uploadInfo, uploadAuth, uploadAddress,videoId)
+              }, 'json')
+              $('#status').text('文件开始上传...')
+              console.log("onUploadStarted:" + uploadInfo.file.name + ", endpoint:" + uploadInfo.endpoint + ", bucket:" + uploadInfo.bucket + ", object:" + uploadInfo.object)
+            } else {
+              // 如果videoId有值，根据videoId刷新上传凭证
+              // https://help.aliyun.com/document_detail/55408.html?spm=a2c4g.11186623.6.630.BoYYcY
+              var refreshUrl = '/aliyun/refresh/upload/video?BusinessType=vodai&TerminalType=pc&DeviceModel=iPhone9,2&UUID=59ECA-4193-4695-94DD-7E1247288&AppVersion=1.0.0&Title=haha1&FileName=xxx.mp4&VideoId=' + uploadInfo.videoId
+              $.get(refreshUrl, function (data) {
+                var uploadAuth = data.UploadAuth
+                var uploadAddress = data.UploadAddress
+                var videoId = data.VideoId
+                $("#aliyunVideoId").val(data.VideoId)
+                $("#playUrl").text(data.VideoId)
+                uploader.setUploadAuthAndAddress(uploadInfo, uploadAuth, uploadAddress,videoId)
+              }, 'json')
+            }
+          },
+          // 文件上传成功
+          onUploadSucceed: function (uploadInfo) {
+            console.log("onUploadSucceed: " + uploadInfo.file.name + ", endpoint:" + uploadInfo.endpoint + ", bucket:" + uploadInfo.bucket + ", object:" + uploadInfo.object)
+            $('#status').text('文件上传成功!')
+          },
+          // 文件上传失败
+          onUploadFailed: function (uploadInfo, code, message) {
+            console.log("onUploadFailed: file:" + uploadInfo.file.name + ",code:" + code + ", message:" + message)
+            $('#status').text('文件上传失败!')
+          },
+          // 取消文件上传
+          onUploadCanceled: function (uploadInfo, code, message) {
+            console.log("Canceled file: " + uploadInfo.file.name + ", code: " + code + ", message:" + message)
+            $('#status').text('文件上传已暂停!')
+          },
+          // 文件上传进度，单位：字节, 可以在这个函数中拿到上传进度并显示在页面上
+          onUploadProgress: function (uploadInfo, totalSize, progress) {
+            console.log("onUploadProgress:file:" + uploadInfo.file.name + ", fileSize:" + totalSize + ", percent:" + Math.ceil(progress * 100) + "%")
+            var progressPercent = Math.ceil(progress * 100)
+            $('#auth-progress').text(progressPercent)
+            $('#status').text('文件上传中...')
+          },
+          // 上传凭证超时
+          onUploadTokenExpired: function (uploadInfo) {
+            // 上传大文件超时, 如果是上传方式一即根据 UploadAuth 上传时
+            // 需要根据 uploadInfo.videoId 调用刷新视频上传凭证接口(https://help.aliyun.com/document_detail/55408.html)重新获取 UploadAuth
+            // 然后调用 resumeUploadWithAuth 方法, 这里是测试接口, 所以我直接获取了 UploadAuth
+            $('#status').text('文件上传超时!')
+
+            let refreshUrl = 'https://demo-vod.cn-shanghai.aliyuncs.com/voddemo/RefreshUploadVideo?BusinessType=vodai&TerminalType=pc&DeviceModel=iPhone9,2&UUID=59ECA-4193-4695-94DD-7E1247288&AppVersion=1.0.0&Title=haha1&FileName=xxx.mp4&VideoId=' + uploadInfo.videoId
+            $.get(refreshUrl, function (data) {
+              var uploadAuth = data.UploadAuth
+              uploader.resumeUploadWithAuth(uploadAuth)
+              console.log('upload expired and resume upload with uploadauth ' + uploadAuth)
+            }, 'json')
+          },
+          // 全部文件上传结束
+          onUploadEnd: function (uploadInfo) {
+            //$('#status').text('文件上传完毕!')
+            $("#uploadFile").hide();
+            $("#uploadInfo").show();
+            console.log("onUploadEnd: uploaded all the files")
+          }
+        })
+        return uploader
+      }
+
+      var uploader = null
+
+      $('#file1').on('change', function (e) {
+        var file = e.target.files[0]
+        if (!file) {
+          alert("请先选择需要上传的文件!")
+          return
+        }
+        var Title = file.name
+        var userData = '{"Vod":{}}'
+        if (uploader) {
+          uploader.stopUpload()
+          $('#auth-progress').text('0')
+          $('#status').text("")
+        }
+        uploader = createUploader()
+        // 首先调用 uploader.addFile(event.target.files[i], null, null, null, userData)
+        console.log(uploader)
+        uploader.addFile(file, null, null, null, userData)
+        $('#authUpload').attr('disabled', false)
+        $('#pauseUpload').attr('disabled', true)
+        $('#resumeUpload').attr('disabled', true)
+      })
+
+      // 第一种方式 UploadAuth 上传 
+      $('#authUpload').on('click', function () {
+        // 然后调用 startUpload 方法, 开始上传
+        if (uploader !== null) {
+          uploader.startUpload()
+          $('#authUpload').attr('disabled', true)
+          $('#pauseUpload').attr('disabled', false)
+        }
+      })
+
+      // 暂停上传
+      $('#pauseUpload').on('click', function () {
+        if (uploader !== null) {
+          uploader.stopUpload()
+          $('#resumeUpload').attr('disabled', false)
+          $('#pauseUpload').attr('disabled', true)
+        }
+      })
+
+
+      $('#resumeUpload').on('click', function () {
+        if (uploader !== null) {
+          uploader.startUpload()
+          $('#resumeUpload').attr('disabled', true)
+          $('#pauseUpload').attr('disabled', false)
+        }
+      })
+
+    })
+
+</script>

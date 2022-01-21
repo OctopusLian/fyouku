@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!-- saved from url=(0067)https://account.youku.com/login.htm?callback=https://www.youku.com/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="data-spm" content="a2h0t">
+	
+	<title>用户登录</title>
+	<link rel="stylesheet" href="/static/index/css/layout.css">
+	<link rel="Shortcut Icon" href="/static/index/img/favicon.ico">
+  <link id="YT-loginFrameCss" rel="stylesheet" href="/static/index/css/main_70d8d4cb.css">
+  <script src='/static/index/js/jquery-3.4.1.min.js' type='text/javascript'></script>
+  <script src='/static/index/js/layer/layer.js' type='text/javascript'></script>
+	<div id="header">
+		<div class="header-cont">
+			<a href="/" target="_blank">慕优酷</a>
+		</div>
+	</div>
+	<div id="content">
+		<div class="demo" id="loginbox" style="display: block;">
+      <div>
+        <div id="YT-loginWrap" class="YT-loginWrap mini">
+          <div id="alibaba-login-iframe" class="iframe-loaded">
+            <div id="alibaba-login-iframe-loading"></div>
+            <iframe id="alibaba-login-box" src="/mini/login" width="340" height="366" frameborder="none" scrolling="no" style="border: none;">
+              </iframe>
+          </div>
+          <div class="YT-loginFrame-func"></div>
+          <div id="YT-loginFrame-container"></div>
+        </div>
+      </div>
+    </div>
+	</div>
+</body></html>
+<script>
+//判断登录状态是否存在
+$(function(){
+    var uid = localStorage.getItem("uid");
+	if(uid){
+		location.href = '/ucenter/video';
+	}
+});
+</script>
