@@ -1,0 +1,24 @@
+syntax = "proto3"
+
+package proto;
+
+service UserService {
+    rpc LoginDo(RequestLoginDo) returns (ResponseLoginDo) {}
+}
+
+message RequestLoginDo {
+    string mobile = 1;
+    string password = 2;
+}
+
+message ResponseLoginDo {
+    int64 code = 1;
+    string msg = 2;
+    LoginUser items = 3;
+    int64 count = 4;
+}
+
+message LoginUser {
+    int64 uid = 1;
+    string username = 2;
+}

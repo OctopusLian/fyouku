@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" data-spm-anchor-id="0.0.0.i1"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            
+    <meta name="robots" content="noodp, noydir">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="-1">
+    <title>优酷登录</title>
+    <link rel="Shortcut Icon" href="/static/index/img/favicon.ico">
+    
+    <link href="/static/index/css/mini_login_index.css" rel="stylesheet" type="text/css">
+
+    <link href="/static/index/css/mini_login_youku.css" rel="stylesheet" type="text/css">
+    <script src='/static/index/js/jquery-3.4.1.min.js' type='text/javascript'></script>
+    <script src='/static/index/js/layer/layer.js' type='text/javascript'></script>
+     
+</head>
+<body id="mini-login-body" scroll="no" class="youku lang-zh_CN pc theme-default">
+        
+<div id="container" class="">
+  <div id="login" class="width-vertical login-label-icon login-view-password youku">
+  <div class="corner-icon-view view-type-qrcode">
+  <i class="iconfont icon-qrcode"></i>
+  <div class="login-tip">
+  <div class="poptip">
+  <div class="poptip-arrow">
+  <em></em><span></span>
+  </div></div></div></div>
+  <div class="login-content nc-outer-box">
+  <div class="login-password">
+  <div id="login-error" class="login-error" style="display: none;"><i class="iconfont icon-warning"></i>
+  <div class="login-error-msg"></div>
+  </div>
+  <form id="login-form" class="login-form" onsubmit='return false;'>
+  <div class="login-blocks block0">
+  <label class="password-login-title">账号登录</label>
+  <a href="javascript:void(0);" target="_self" class="sms-login-link">手机快捷登录</a>
+  </div>
+  <div class="fm-field">
+  <div><label class="fm-label-icon"><i class="icon-user iconfont" title="用户名"></i></label></div>
+  <div class="input-plain-wrap input-wrap-loginid ">
+    <input type="text" class="fm-text" id="fm-login-id" tabindex="1" aria-label="手机" placeholder="手机" autocapitalize="off">
+  </div>
+  </div>
+  <div class="fm-field"><div><label class="fm-label-icon"><i class="icon-pwd iconfont" title="登录密码"></i></label></div>
+  <div class="input-plain-wrap has-password-look-btn input-wrap-password">
+  <input type="password" class="fm-text" id="fm-login-password" tabindex="2" aria-label="登录密码" placeholder="登录密码" maxlength="40" autocomplete="off" autocapitalize="off">
+  <div class="password-look-btn"></div></div></div>
+  </div>
+  <div class="login-blocks forgot-password-links">
+  <div class="fm-keep-login"><input type="checkbox" id="fm-keep-login" class="fm-checkbox"><label for="fm-keep-login">记住我</label></div>
+  <a href="javascript:;" class="">忘记密码</a>
+  <a href="javascript:;" class="">帮助</a>
+  </div><div class="fm-btn">
+  <button id="password-login" type="submit" tabindex="3" class="fm-button fm-submit password-login">登录</button>
+  </div>
+  <div class="login-blocks sns-login-block"><div class="sns-login">
+  <div id="thirdpart-login">
+  <a href="javascript:;" attr-action="window" attr-type="taobao" attr-customurl="" attr-onclickfn="" class="thirdpart-login-icon icon-taobao" title="淘宝授权登录"></a>
+  <a href="javascript:;" attr-action="window" attr-type="qq" attr-customurl="" attr-onclickfn="" class="thirdpart-login-icon icon-qq" title="QQ授权登录"></a>
+  <a href="javascript:;" attr-action="window" attr-type="weibo" attr-customurl="" attr-onclickfn="" class="thirdpart-login-icon icon-weibo" title="微博授权登录"></a>
+  <a href="javascript:;" attr-action="window" attr-type="alipay" attr-customurl="" attr-onclickfn="" class="thirdpart-login-icon icon-alipay" title="支付宝授权登录"></a>
+  <a href="javascript:;" attr-action="window" attr-type="weixin" attr-customurl="" attr-onclickfn="" class="thirdpart-login-icon icon-weixin" title="微信授权登录"></a>
+  </div></div>
+  <a href="/register" target="_blank" class="">注册</a></div>
+  </form></div></div></div></div>       
+
+</body></html>
+<script>
+  $(function(){
+    $("#password-login").click(function() {
+      var mobile = $("#fm-login-id").val();
+      var password = $("#fm-login-password").val();
+      
+      if(mobile == ''){
+        top.layer.msg('手机号不能为空', {icon: 2});
+        return false;
+      }
+      if(password == ''){
+        top.layer.msg('密码不能为空', {icon: 2});
+        return false;
+      }
+      
+      $.ajax({
+          url: '/login/do',
+          data: {
+              mobile: mobile,
+              password: password
+          },
+          type: 'post',
+          async: false,
+          dataType: 'json',
+          success: function(response) {
+              if (response.code == 0) {
+				localStorage.setItem("uid", response.items.uid);
+				localStorage.setItem("username", response.items.username);
+				localStorage.setItem("userico", '/static/data/user/zhja.png');
+				setTimeout(function(){ top.location.href = "/"; }, 1000);
+                return false;
+              } else {
+                  top.layer.msg(response.msg, {icon: 2});
+                  return false;
+              }
+          }
+      });
+    });
+  });
+</script>

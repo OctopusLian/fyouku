@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<title>新用户注册</title>
+	<link rel="stylesheet" href="/static/index/css/register.css">
+	<link rel="Shortcut Icon" href="/static/index/img/favicon.ico">
+  <script src='/static/index/js/jquery-3.4.1.min.js' type='text/javascript'></script>
+  <script src='/static/index/js/layer/layer.js' type='text/javascript'></script>
+	</head>
+<body>
+	<div class="logo"><a href="/"><img src="/static/index/img/youku_logo.png" alt="" onclick="javascript:;"></a></div>
+	<div class="logo-tips">注册成功后，账号可以登录MUYOUKU</div>
+<div class="step-wrap has2">
+    	<span class="step step-start">
+    		<em>
+    			<b>1</b>
+    			<strong>填写手机号</strong>
+    		</em>
+    		<img src="/static/index/img/stepline.png" class="stepLine">
+    	</span>
+	    	<span class="step step-end step-undo">
+	    		<em>
+	    			<b>2</b>
+	    			<strong>成功</strong>
+	    		</em>
+	    	</span>
+</div>
+	<div class="registe-wrap" id="registeWrap">
+    <div class="result-tips" id="resultBox" style="display:none;">
+  		<div class="errbox-wrap">
+  			<div class="errbox-body">
+  				<div class="errbox-icon"> <i class="m-icon icon-large icon-success"></i>
+  				</div>
+  				<div class="errbox-cont">
+  					<h3>恭喜你，注册成功！</h3><p>您可以使用此账号登录优酷、土豆、来疯等优酷土豆集团旗下产品。</p>
+  				</div>
+  			</div>
+  			<div class="errbox-foot">
+  				<a href="/">去首页&gt;&gt;</a>
+  			</div>
+  		</div>
+  	</div>
+    <form action="" class="form registe-form" id="registeForm" method="post" onsubmit='return false';>
+			<div class="form-group form-mobile">
+				<label class="label" for="passport">
+					<span>手机号码：</span>
+				</label>
+				<span class="form-control">
+					<div class="YT-country-chouse-box" id="YT-openListBtn">
+						<div id="YT-countryCode" class="YT-countryCode" data-region="CN">+86</div>
+					</div>
+					<input placeholder="手机号码" type="text" name="mobile" maxlength="11" id="mobile" class="form-input">
+				</span>
+				<span class="check-result" id="_mobile" style="color:red"></span>
+			</div>
+			<div class="form-group">
+				<label class="label" for="password">
+					<span>设置密码：</span>
+				</label>
+				<span class="form-control">
+					<input placeholder="6-16位字母、数字和符号" type="password" name="password" maxlength="16" id="password" class="form-input">
+					
+				</span>
+				<span class="check-result" id="_password" style="color:red"></span>
+			</div>
+			<div class="form-group">
+				<label class="label" for="repeatPsd">
+					<span>确认密码：</span>
+				</label>
+				<span class="form-control">
+					<input placeholder="确认密码" type="password" name="repeatPsd" maxlength="16" id="repeatPsd" class="form-input" onpaste="return false;">
+				</span>
+				<span class="check-result" id="_repeatPsd"  style="color:red"></span>
+			</div>
+			<div class="form-group btn-group">
+				<label class="label"></label><span class="form-control" id="registerButton">
+					<button class="form-btn" title="注 册" id="regSubmit">注 册</button>
+				</span>
+			</div>
+			<div class="form-group form-rules">
+				<label class="label">&nbsp;</label><span class="form-control">
+					<span class="has-account"><a href="/login" id="gotoLogin">登录</a></span>
+					<label for="agreeRules">
+						<input type="checkbox" name="agreeRules" class="agreeInput" id="agreeRules" checked="checked" >已阅读并同意<a href="javascript:;" target="_blank">《用户协议》</a><a href="javascript:;" target="_blank">《隐私政策》</a>
+					</label>
+				</span>
+			</div>
+		</form>
+	</div>
+
+	<div class="registe-footer">Copyright©2017 慕优酷</div>
+</body></html>
+<script>
+  $(function(){
+	var uid = localStorage.getItem("uid");
+	if(uid){
+		location.href = '/ucenter/video';
+	}
+	
+    $("#registerButton").click(function(){
+            $("#_mobile").html('');
+            $("#_password").html('');
+            $("#_repeatPsd").html('');
+            
+            var mobile = $("#mobile").val();
+            var password = $("#password").val();
+            var repeatPsd = $("#repeatPsd").val();
+
+            if(mobile == ''){
+               $("#_mobile").html('手机号不能为空');
+               return false;
+            }
+            if(password == ''){
+               $("#_password").html('密码不能为空');
+               return false;
+            }
+            if(repeatPsd != password){
+               $("#_repeatPsd").html('确认密码不正确');
+               return false;
+            }
+
+            $.ajax({
+                    url: '/register/save',
+                    data: {
+                        mobile: mobile,
+                        password: password
+                    },
+                    type: 'post',
+                    async: false,
+                    dataType: 'json',
+                    success: function(response) {
+                        if (response.code == 0) {
+                          $("#registeForm").hide('');
+                          $("#resultBox").show('');
+                          return false;
+                        } else {
+                            layer.msg(response.msg, {icon: 2});
+                            return false;
+                        }
+                    }
+                });
+        });
+  });
+</script>

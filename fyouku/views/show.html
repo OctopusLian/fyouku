@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<!-- <html lang="en"> -->
+<html>
+ <head> 
+  <meta charset="utf-8" /> 
+  <meta name="theme-color" content="#000000" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" /> 
+  <meta name="renderer" content="webkit" /> 
+  <title>{{ .videoInfo.Title }} 第{{ .episodes.Num }}话 {{ .episodes.Title }}-慕优酷</title> 
+  <meta name="title" content="{{ .videoInfo.Title }} 第{{ .episodes.Num }}话 {{ .episodes.Title }}-慕优酷" /> 
+  <meta name="keywords" itemprop="keywords" content="{{ .videoInfo.Title }} 第{{ .episodes.Num }}话 {{ .episodes.Title }},慕优酷" /> 
+  <meta name="description" content="{{ .videoInfo.Title }} 第{{ .episodes.Num }}话 {{ .episodes.Title }}" /> 
+  <meta itemprop="inLanguage" content="zh-CN" /> 
+  <meta itemprop="contentLocation" content="中国" /> 
+  <link rel="Shortcut Icon" href="/static/index/img/favicon.ico">
+  <link rel="stylesheet" href="/static/index/css/Page.chunk.css" />
+  <link rel="stylesheet" href="/static/index/css/show.css" />
+
+	<link rel="stylesheet" href="https://g.alicdn.com/de/prismplayer/2.8.2/skins/default/aliplayer-min.css" />
+  <script charset="utf-8" type="text/javascript" src="https://g.alicdn.com/de/prismplayer/2.8.2/aliplayer-min.js"></script>
+    
+
+  <script src='/static/index/js/jquery-3.4.1.min.js' type='text/javascript'></script>
+  <script src='/static/index/js/layer/layer.js' type='text/javascript'></script>
+	<script src='/static/index/js/jquery.danmu.min.js' type='text/javascript'></script>
+</head> 
+<body data-spm="13141534">
+  <div id="app">
+    <div>
+    <div></div>
+    <div class="play-top-container">
+      <div id="top-header">
+        <div class="g-header_3AdmO ">
+          {{template "header.html" .}} 
+        </div>
+      </div>
+      <div class="l-container">
+        <div class="module-playbox">
+          <div class="playbox">
+            <div class="play-paction-wrap">
+              <div class="unfold-wrap">
+                <a class="arrow-wrap" href="javascript:;" title="收起列表">
+                  <div class="arrow">
+                    <span class="iconfont iconzhankaijiantou-shang"></span>
+                  </div></a>
+         </div>
+         <div class="playarea">
+          <div id="playerBox">
+    <div id="player"><div id="ykPlayer" class="youku-player ykplayer-dashboard-hidden" tabindex="-1"><div class="youku-film-player prism-player" id="J_prismPlayer">
+
+	<div id="danmu" ></div>
+            
+    </div>
+
+        
+        
+        
+
+        
+        
+        <div id="youkubarrage-controller"><div id="barrage-controller" class="controller__4ra4 normal "><div class="switch-img_12hDa turn-off_17zAW turn-on_3h6RT"></div><div class="barrage-config_3y9Jm hide_3LyDB"><div class="ant-tabs ant-tabs-top ant-tabs-small ant-tabs-line"><div role="tablist" class="ant-tabs-bar ant-tabs-top-bar ant-tabs-small-bar" tabindex="0" style="color: rgba(255, 255, 255, 0.3); width: 100%; text-align: center;"><div class="ant-tabs-nav-container"><span unselectable="unselectable" class="ant-tabs-tab-prev ant-tabs-tab-btn-disabled"><span class="ant-tabs-tab-prev-icon"><i aria-label="icon: left" class="anticon anticon-left ant-tabs-tab-prev-icon-target"><svg viewBox="64 64 896 896" focusable="false" class="" data-icon="left" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"></path></svg></i></span></span><span unselectable="unselectable" class="ant-tabs-tab-next ant-tabs-tab-btn-disabled"><span class="ant-tabs-tab-next-icon"><i aria-label="icon: right" class="anticon anticon-right ant-tabs-tab-next-icon-target"><svg viewBox="64 64 896 896" focusable="false" class="" data-icon="right" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"></path></svg></i></span></span><div class="ant-tabs-nav-wrap"><div class="ant-tabs-nav-scroll"><div class="ant-tabs-nav ant-tabs-nav-animated"><div><div role="tab" aria-disabled="false" aria-selected="true" class="ant-tabs-tab-active ant-tabs-tab" style="margin-right: 0px;">弹幕样式</div><div role="tab" aria-disabled="false" aria-selected="false" class=" ant-tabs-tab" style="margin-right: 0px;">观看设置</div><div role="tab" aria-disabled="false" aria-selected="false" class=" ant-tabs-tab" style="margin-right: 0px;">屏蔽设置</div></div></div></div></div></div></div></div></div><div class="danmu-input_C2xkm" style="color: rgb(255, 255, 255);"><div class="barrage-tip_pWabr hide_1tvzc"><div class="triggle_3Eaog"></div></div><div class="perfix_3b_52" style=""><div class="skin-config_1sxKY hide_6acAr"><div><div class="vip-window_xGlXS hide_2d8yt"><div style="margin-top: 66px;"><div></div></div></div></div></div><img class="face_oufjT" src="/static/index/img/YjA2ZThhNTlkYTdiMzRhYmY1ZTFjNDBhMDg3ODU1NGU=.png"><span></span></div><input id="barrageValue" maxlength="50" type="text" placeholder="来发弹幕吧~" value="" style=""><button class="send_2pO5x" id="barrageButton"> 发送</button></div></div></div></div></div>
+           <!--div id="player">
+      <iframe style="width:100%; height:100%" src="{{.episodes.PlayUrl}}" allowfullscreen="" frameborder="0"></iframe>
+        
+      </div-->
+          </div>
+         </div>
+         <div class="quanyi-info"></div>
+         <div class="nav-mamu">
+          <ul class="play-fn" mid="002">
+           <li class="play-fn-li fn-shoucang" name="shoucang"><a class="fav-link" title=""><span class="fn-title iconfont iconshoucang" style="font-size:19px"></span><span class="fav-text">收藏</span></a></li>
+           <li class="play-fn-li fn-phonewatch" name="phone"><span class="fn-title iconfont iconhudongqu-shoujikan" style="font-size:19px"></span><span class="text">手机看</span></li>
+           <li class="play-fn-li fn-share" name="share"><span class="text">分享</span></li>
+           <li class="play-fn-li fn-reprot" name="reprot"><span class="text">举报</span>
+            <div class="fn-panel">
+             <div class="arrow"></div>
+             <div class="fn-panel-header">
+              <div class="fn-panel-video">
+               举报视频：
+               <!-- -->{{ .episodes.Title }}
+              </div>
+             </div>
+             <div class="line"></div>
+             <div class="fn-panel-body">
+              <ul class="report-select clear">
+               <li><label><input type="checkbox" name="impeachillegal" class="mode-h5 report-mod" />违法违规</label></li>
+               <li><label><input type="checkbox" name="impeachterror" class="report-mod" />暴恐</label></li>
+               <li><label><input type="checkbox" name="impeachviolent" class="mode-h5 report-mod" />血腥暴力</label></li>
+               <li><label><input type="checkbox" name="impeachpornographic" class="report-mod" />色情低俗</label></li>
+               <li><label><input type="checkbox" name="impeachtrash" class="mode-h5 report-mod" />垃圾信息</label></li>
+               <li><label><input type="checkbox" name="impeachunderage" class="report-mod" />未成年人有害</label></li>
+               <li class="last-item">
+                <div class="fn-panel-video">
+                 问题描述(必填):
+                </div><label><input type="text" name="reportTxt" maxlength="100" value="" /></label></li>
+              </ul>
+             </div>
+             <a href="javascript:;" class="fn-btn fn-pc-report disabled">举报</a>
+            </div></li>
+          </ul>
+         </div>
+        </div>
+        <div class="listbox">
+         <div class="anthology-wrap">
+          <div class="right-title-wrap " id="module_basic_dayu_sub" mid="003">
+           <div class="normal-title-wrap">
+            <div class="thesis-wrap" data-spm="c_righttitle" data-scm="c_righttitle">
+             <a href="/" target="_blank" class="title-link ellipsis-style" title="火影忍者">火影忍者</a>
+             <a style="display:none" class="close-bt"><span class="iconfont iconclose" style="font-size:26px"></span></a>
+            </div>
+            <div class="title-info">
+             <span>720集全</span>
+            </div>
+           </div>
+          </div>
+          <div class="scroll-area">
+           <div id="bpmodule-playpage-fee" class="fee-wrap"></div>
+           <div class="anthology-content-scroll">
+            <div>
+             <div class="top-manu-wrap">
+              <a class="top-component-title">选集</a>
+             </div>
+             <div class="paged-wrap">
+              <dt class="top-wrap ">
+               <a class="current-page"><span class="top-link" style="margin-left:18px">1-30</span></a>
+               <a class=""><span class="top-link" style="margin-left:18px">31-60</span></a>
+               <a class=""><span class="top-link" style="margin-left:18px">61-90</span></a>
+               <!--a class=""><span class="top-link" style="margin-left:18px">更多视频<i class="iconfont iconzhankaijiantou-xia"></i></span></a-->
+              </dt>
+              <!--dd style="display:none">
+               <a class="bottom-page ">91-120</a>
+               <a class="bottom-page ">121-150</a>
+               <a class="bottom-page ">151-180</a>
+               <a class="bottom-page ">181-210</a>
+               <a class="bottom-page ">211-240</a>
+               <a class="bottom-page ">241-270</a>
+               <a class="bottom-page ">271-300</a>
+               <a class="bottom-page ">301-330</a>
+               <a class="bottom-page ">331-360</a>
+               <a class="bottom-page ">361-390</a>
+               <a class="bottom-page ">391-420</a>
+               <a class="bottom-page ">421-450</a>
+               <a class="bottom-page ">451-480</a>
+               <a class="bottom-page ">481-510</a>
+               <a class="bottom-page ">511-540</a>
+               <a class="bottom-page ">541-570</a>
+               <a class="bottom-page ">571-600</a>
+               <a class="bottom-page ">601-630</a>
+               <a class="bottom-page ">631-660</a>
+               <a class="bottom-page ">661-690</a>
+               <a class="bottom-page ">691-720</a>
+              </dd-->
+             </div>
+            </div>
+            <div>
+             <div class="anthology-content" style="font-size:0">
+      {{range $ind, $elem := .episodesList}}
+              <div class="box-item" title="{{$elem.Title}}">
+               <div class="box-mark"></div>
+               <a href="/show?id={{$.videoId}}&episodesId={{$elem.Id}}">
+        {{if eq $elem.Id $.episodes.Id }}
+                <div class="current-mask">
+                 <span class="iconfont iconTriangle" style="font-size:14px;color:#24A5FF;padding:1px"></span>
+                </div>
+        {{else}}
+        <span class="label-text">{{$elem.Num}}</span>
+        {{end}}
+        </a>
+              </div>
+      {{end}}
+      
+              </div>
+             <div data-spm="anthology_shoujikan" class="qr-wrap">
+              <img src="//img.alicdn.com/tfs/TB1tAiwj7T2gK0jSZFkXXcIQFXa-111-90.png" class="qr-logo" />
+              <img class="qrcode" src="//qr.youku.com/qr?sc=video_play&amp;ac=open&amp;ps={vid:'XNTQwMTgxMTE2',spot:0,tp:1,cp:0,cpp:100049,source_from:'pcshoujikan_a2hbt_13141534_anthology',cna:'iibzDpga4F4CAW/KOdow37WF'}&amp;size=123" />
+              <a href="javascript:;" class="qr-title-wrap" data-spm="dqrcode" data-name="a_pos">
+               <div class="qr-title">
+                扫一扫，手机继续看
+               </div>
+               <div class="qr-subtitle">
+                <span class="stress">优酷App</span>扫码接着看
+               </div></a>
+             </div>
+            </div>
+            </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="left-title" style="display:inline-block;width:100%">
+       <div style="float:left" class="left-title-content-wrap">
+        <div class="player-title clearfix">
+         <div class="title-wrap" mid="001">
+          <h1 class="title-width" id="left-title-content-wrap"><span class="bg-mark bg-mark-red">独播</span>
+           <div class="subtitle">
+            <a href="/" target="_blank" data-spm="d_lefttitle" data-scm="d_lefttitle">{{ .videoInfo.Title }}</a>：
+            <span title="{{ .episodes.Title }}">{{ .episodes.Title }}</span>
+           </div></h1>
+          <div class="desc">
+           <span class="video-heat"><span class="iconfont iconfire iconfire-red"></span><span class="video-heat-text">热度 {{ .episodes.Comment }}</span></span>
+           <div class="score">
+            <span class="point">&middot;</span>9
+            <!-- -->.
+            <!-- -->9
+           </div>
+           <div data-sn="tags" style="display:inline-block">
+            <div class="intro-text  ">
+             <div class="cut-line"></div>内容简介
+             <span class="iconfont iconzhankaijiantou-xia"></span>
+            </div>
+            <a class="v-tag" target="_blank" href="#">格斗</a>
+            <a class="v-tag" target="_blank" href="#">忍者</a>
+            <a class="v-tag" target="_blank" href="#">热血</a>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div id="perch-node"></div>
+    
+  
+  
+  <div style="width: 100%; padding: 20px 0px;">
+   <div class="yboh_1isN_">
+    <div class="leftarea_38HUK">
+     <div id="youkubohMenu" class="boh-menu_12tmG" style="position: static;">
+      <a class="item-link_1JO-h" href="#BohSurroundings_3">
+       <div class="boh-item_2veVn active_H8m0Y">
+        <img src="/static/index/img/TB1Kix4gFP7gK0jSZFjXXc5aXXa-24-24.svg" width="24" />
+        <span>国漫推荐 </span>
+       </div></a>
+      <a class="item-link_1JO-h" href="#BohSurroundings_4">
+       <div class="boh-item_2veVn">
+        <img src="/static/index/img/TB1Kix4gFP7gK0jSZFjXXc5aXXa-24-24.svg" width="24" />
+        <span>日漫推荐 </span>
+       </div></a>
+      <a class="item-link_1JO-h" href="#BohRecommend">
+       <div class="boh-item_2veVn">
+        <img src="/static/index/img/TB1Kix4gFP7gK0jSZFjXXc5aXXa-24-24.svg" width="24" />
+        <span>少女推荐 </span>
+       </div></a>
+      <a class="item-link_1JO-h" href="#BohComment">
+       <div class="boh-item_2veVn">
+        <img src="/static/index/img/TB15Bl4gSf2gK0jSZFPXXXsopXa-24-24.svg" width="24" />
+        <span>评论 </span>
+       </div></a>
+     </div>
+    </div>
+    <div class="rightarea_1Atl3">
+     
+     <div id="BohSurroundings_3" class="boh-surroundings_2PJUL">
+      <div class="banner_iFWuU">
+       国漫推荐
+      </div>
+      <div class="trochanter-root_RQ9i5">
+       <div class="video-info-arrow-icon-font_3CHY_">
+        <div class="left_biQw_ hide_McaTq icon_2vg69 left_3hy6J" data="false"></div>
+       </div>
+       <div class="trochanter-component_BMnQn work-content_ELfRG">
+        <div class="trochanter-content_YZOgp" data-spm="2_5" data-scm="50646" data-spm-max-idx="90" style="transform: translateX(0px);">
+         {{range $ind, $elem := .chinaVideos}}
+      {{if lt $ind 6}}
+    <div class="h-pack_rqVeo work_12nsY">
+          <div class="pop_1JCBE">
+           <a href="/show?id={{$elem.Id}}" target="_blank"><img title="{{$elem.Title}}" src="{{$elem.Img}}" /></a>
+           <a class="bg_1Yl2E" href="/show?id={{$elem.Id}}" target="_blank"></a>
+           <div class="rightbottom_2NMQK ">
+            {{if ne $elem.IsEnd 1 }}更新至{{$elem.EpisodesCount}}话{{else}}{{$elem.EpisodesCount}}话全{{end}}
+           </div>
+          </div>
+          <div class="content_2SwUe">
+           <div class="title_3k97G">
+            <a href="/show?id={{$elem.Id}}" target="_blank">{{$elem.Title}}</a>
+           </div>
+           <div class="subtitle_3PVlN">
+            {{$elem.SubTitle}}
+           </div>
+          </div>
+         </div>
+      {{end}}
+    {{end}} 
+        </div>
+       </div>
+       <!--div class="video-info-arrow-icon-font_3CHY_">
+        <div class="video-info-arrow-icon-font_3CHY_ icon_2vg69 right_K_Hla right_Ssh2B " data="false"></div>
+       </div-->
+      </div>
+     </div>
+     <div id="BohSurroundings_4" class="boh-surroundings_2PJUL">
+      <div class="banner_iFWuU">
+       日漫推荐
+      </div>
+      <div class="trochanter-root_RQ9i5">
+       <div class="video-info-arrow-icon-font_3CHY_">
+        <div class="left_biQw_ hide_McaTq icon_2vg69 left_3hy6J" data="false"></div>
+       </div>
+       <div class="trochanter-component_BMnQn work-content_ELfRG">
+        <div class="trochanter-content_YZOgp" data-spm="2_5" style="transform: translateX(0px);">
+         
+      {{range $ind, $elem := .japanVideos}}
+      {{if lt $ind 6}}
+    <div class="h-pack_rqVeo work_12nsY">
+          <div class="pop_1JCBE">
+           <a href="/show?id={{$elem.Id}}" target="_blank"><img title="{{$elem.Title}}" src="{{$elem.Img}}" /></a>
+           <a class="bg_1Yl2E" href="/show?id={{$elem.Id}}" target="_blank"></a>
+           <div class="rightbottom_2NMQK ">
+            {{if ne $elem.IsEnd 1 }}更新至{{$elem.EpisodesCount}}话{{else}}{{$elem.EpisodesCount}}话全{{end}}
+           </div>
+          </div>
+          <div class="content_2SwUe">
+           <div class="title_3k97G">
+            <a href="/show?id={{$elem.Id}}" target="_blank">{{$elem.Title}}</a>
+           </div>
+           <div class="subtitle_3PVlN">
+            {{$elem.SubTitle}}
+           </div>
+          </div>
+         </div>
+      {{end}}
+    {{end}} 
+    
+        </div>
+       </div>
+       <div class="video-info-arrow-icon-font_3CHY_">
+        <div class="video-info-arrow-icon-font_3CHY_ icon_2vg69 right_K_Hla right_Ssh2B " data="false"></div>
+       </div>
+      </div>
+     </div>
+   <div id="BohRecommend" class="boh-recommend_3LZR6">
+      <div class="banner_2vKJN">
+       少女推荐
+      </div>
+      <div class="content_2hbzh" spm-data="2_6" scm-data="50649">
+       <div class="inner-content_F_pBs">
+    {{range $ind, $elem := .girlVideos}}
+    {{if lt $ind 5}}
+        <div class="v-pack_2Ckw3 work_3-FDv">
+         <div class="pop_30OSG">
+          <a href="/show?id={{$elem.Id}}" target="_blank">
+           <div class="lazyload-placeholder" style="height: 261.75px;"><img title="{{$elem.Title}}" src="{{if eq $elem.Img1 "" }}/static/data/new/38a.png{{else}}{{$elem.Img1}}{{end}}" /></div></a>
+          <a class="bg_1Qi72" href="/show?id={{$elem.Id}}" target="_blank"></a>
+          <div class="rightbottom_214rm ">
+           {{if ne $elem.IsEnd 1 }}更新至{{$elem.EpisodesCount}}话{{else}}{{$elem.EpisodesCount}}话全{{end}}
+          </div>
+         </div>
+         <div class="content_3Ep74">
+          <div class="title_A3Sf7">
+           <a href="/show?id={{$elem.Id}}" target="_blank">{{$elem.Title}}</a>
+          </div>
+          <div class="subtitle_1gS7Q">
+           {{$elem.SubTitle}}
+          </div>
+         </div>
+        </div>
+    {{end}}
+        {{end}}
+    <div style="clear: both;"></div>
+       </div>
+      </div>
+     </div>
+     
+  
+  <div class="comment-root" id="BohComment">
+      <h3 class="comment-title">评论</h3>
+      <div class="comment-input">
+       <div class="comment-input-body">
+        <a class="login-btm" href="/login">登录</a>
+        <textarea id="textarea_content" placeholder="后可发言~" class="comment-input-textarea" style="width: 70%;"></textarea>
+       </div>
+       <div class="comment-input-footer">
+        
+        
+        <a class="comment-input-send" href="javascript:;" id="commentSave">
+         <div class="reply-toast-wrap"></div>发表评论</a>
+       </div>
+      </div>
+      <div>
+       <div class="comment-list">
+        <div class="comment-list-main">
+         <div class="comment-list-hot">
+          <div class="comment-list-title">
+           <span>热门评论</span>(<font id="commentCount">0</font>)
+          </div>
+    
+          
+    <div id="commentList"></div>
+       
+          
+          <div>
+           <h3 class="comment-more-button" style="display: block;"><a href="javascript:;" id="commentMore">查看更多评论</a><span class="iconfont iconzhankai comment-ico-more"></span></h3>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div> 
+  
+  
+  {{template "foot.html" .}}
+    <div class="fixed_bar_2rZMG" style="bottom:80px;z-index:12">
+     <div class="download_wrap_1DeLB"></div>
+     <a target="_blank" href="#" class="report_2SyuQ" title="意见反馈"></a>
+    </div>
+    <span class="iconfont iconshoucang" style="font-size:16px"></span>
+   </div>
+  </div> 
+  
+  <input type="hidden" id="episodesId" value="{{ .episodes.Id }}" />
+  <input type="hidden" id="commentPage" value="1" />
+ </body>
+</html>
+<script src='/static/index/js/foot.js' type='text/javascript'></script>
+<script>
+$(function(){
+    var videoId = getQueryString("id");
+    var uid = localStorage.getItem("uid");
+    
+{{if ne .episodes.AliyunVideoId ""}}
+  	//视频播放器部分
+	var player = new Aliplayer({
+    id: 'J_prismPlayer',
+    width: '100%',
+    height: '100%',
+    autoplay: true,
+        //播放方式二：点播用户推荐
+        vid : '{{ .episodes.AliyunVideoId }}',
+        playauth : '{{ .PlayAuth }}',
+        cover: 'http://liveroom-img.oss-cn-qingdao.aliyuncs.com/logo.png',
+        encryptType:1, //当播放私有加密流时需要设置。
+    },function(player){
+        console.log('播放器创建好了。')
+    }
+  ); 
+{{end}}
+{{if eq .episodes.AliyunVideoId ""}}
+	//视频播放器部分
+	var player = new Aliplayer({
+    id: 'J_prismPlayer',
+    width: '100%',
+    height: '100%',
+    autoplay: true,
+    //支持播放地址播放,此播放优先级最高
+    source : '{{.episodes.PlayUrl}}',
+        //播放方式二：点播用户推荐
+        //vid : '1e067a2831b641db90d570b6480fbc40',
+        //playauth : 'ddd',
+        //cover: 'http://liveroom-img.oss-cn-qingdao.aliyuncs.com/logo.png',
+        //encryptType:1, //当播放私有加密流时需要设置。
+        //播放方式三：仅MPS用户使用
+        //vid : '1e067a2831b641db90d570b6480fbc40',
+        //accId: 'dd',
+        //accSecret: 'dd',
+        //stsToken: 'dd',
+        //domainRegion: 'dd',
+        //authInfo: 'dd',
+        //播放方式四：使用STS方式播放
+        //vid : '1e067a2831b641db90d570b6480fbc40',
+        //accessKeyId: 'dd',
+        //securityToken: 'dd',
+        //accessKeySecret: 'dd',
+          //region:'cn-shanghai',//eu-central-1,ap-southeast-1
+    },function(player){
+        console.log('播放器创建好了。')
+    }
+  ); 
+{{end}}  
+  var currentTimeStatus;
+  player.on('play',function(e){
+    startSend();
+  });
+  player.on('pause',function(e){
+    $('#danmu').danmu('danmuPause');
+    clearInterval(currentTimeStatus);
+    clearInterval(wsSendDanmuStatus);
+  });
+  player.on('playing',function(e){
+    var playerStatus = player.getStatus();
+    if(playerStatus != 'play'){
+      startSend();
+    }
+  });
+  //开启弹幕和像服务端发送send
+  function startSend(){
+    $('#danmu').danmu('danmuResume');
+    wsSend();
+    //一分钟一次向websocket发送播放器时间，用来获取后面1分钟内的弹幕
+    clearInterval(currentTimeStatus);
+    currentTimeStatus = setInterval(function(){
+      wsSend();
+    },60000);
+  }
+
+  //发送到服务器端获取弹幕信息的参数
+  function wsSend(){
+    console.log(player.getCurrentTime())
+    var messageObj = {currentTime:Math.round(player.getCurrentTime()),episodesId:Math.round($('#episodesId').val())};
+    var messageJson = JSON.stringify(messageObj);
+    ws.send(messageJson);
+  }
+  
+  //建立ws连接，每1分钟send
+  if("WebSocket" in window){
+    var ws = new WebSocket('ws://127.0.0.1:8099/barrage/ws');
+    ws.onopen = function(event){
+          console.log(event);
+          console.log('连接了');
+      };
+    ws.onmessage = function(e) {
+      //循环获取播放器时间，根据时间读取对应的弹幕
+      wsSendDanmu(e.data)
+    };
+    ws.onclose = function(event){console.log("已经与服务器断开连接\r\n当前连接状态："+this.readyState);};
+    ws.onerror = function(event){console.log("WebSocket异常！");};
+  } else {
+  　console.log("您的浏览器不支持WebSocket");
+  }
+
+  //通过websocket获取到数据以后，发送到弹幕上
+  var wsSendDanmuStatus;
+  function wsSendDanmu(jsonData){
+    clearInterval(wsSendDanmuStatus);
+    wsSendDanmuStatus = setInterval(function(){
+      var currentTime = Math.round(player.getCurrentTime());
+      var jsonObj = $.parseJSON(jsonData);
+      for(var index in jsonObj){
+        if(currentTime == jsonObj[index].currentTime){
+          danmuSend(jsonObj[index].content);
+        }
+      }
+    },1000);
+  }
+    
+  //初始化弹幕
+  $("#danmu").danmu({
+    left:0,
+    top:0,
+    height:"85%",
+    width:"100%",
+    speed:10000,
+    opacity:1,
+    font_size_small:16,
+    font_size_big:24,
+    top_botton_danmu_time:6000
+  });
+
+  $("#barrageButton").click(function() {
+    if(!uid){
+      layer.msg('登录后可发送弹幕~', {icon: 2});
+      return false;
+    }
+  
+    var episodesId = $('#episodesId').val()	
+    if(!episodesId){
+      layer.msg('参数不正确~', {icon: 2});
+      return false;
+    }
+        
+    var barrageValue = $('#barrageValue').val()
+    if(!barrageValue){
+      layer.msg('请填写弹幕内容~', {icon: 2});
+      return false;
+    }
+
+    //获取视频播放时间
+    var currentTime = player.getCurrentTime();
+    //提交
+    $.ajax({
+      url: '/barrage/save',
+      data: {
+        uid: uid,
+        content: barrageValue,
+        currentTime: Math.round(currentTime),
+        episodesId: episodesId,
+        videoId: videoId
+      },
+      type: 'post',
+      async: false,
+      dataType: 'json',
+      success: function(response) {
+        if (response.code == 0) {
+          //layer.msg('弹幕发送成功~', {icon: 1});
+          $('#barrageValue').val('');
+          danmuSend(barrageValue);
+        } else {
+          layer.msg(response.msg, {icon: 2});
+          return false;
+        }
+      }
+    });
+  });
+		
+	
+	
+  if(uid){
+    $(".login-btm").hide();
+    $(".comment-input-textarea").attr('placeholder', '有爱评论，说点好听的~');
+  }
+  
+  //加载第一页评论数据
+  getCommentData($('#episodesId').val(), 1);
+
+  $(".comment-more-button").click(function() {
+    getCommentData($('#episodesId').val(), $('#commentPage').val());
+  });
+
+  $("#commentSave").click(function() {
+    if(!uid){
+      layer.msg('登录后可发言~', {icon: 2});
+      return false;
+    }
+    var episodesId = $('#episodesId').val()
+    var textarea_content = $('#textarea_content').val()
+    if(!episodesId){
+      layer.msg('参数不正确~', {icon: 2});
+      return false;
+    }
+    if(!textarea_content){
+      layer.msg('请填写评论内容~', {icon: 2});
+      return false;
+    }
+
+    //判断是否登录了
+    $.ajax({
+      url: '/comment/save',
+      data: {
+        uid: uid,
+        content: textarea_content,
+        episodesId: episodesId,
+        videoId: videoId
+      },
+      type: 'post',
+      async: false,
+      dataType: 'json',
+      success: function(response) {
+        if (response.code == 0) {
+          layer.msg('评论成功~', {icon: 1});
+          $(".comment-list-item").remove();
+          $('#textarea_content').val('')
+          getCommentData($('#episodesId').val(), 1);
+        } else {
+          layer.msg(response.msg, {icon: 2});
+          return false;
+        }
+      }
+    });
+  });
+});
+
+function getCommentData(episodesId, page){
+  $.ajax({
+    url: '/comment/list',
+    data: {
+      page: page,
+      episodesId: episodesId
+    },
+    type: 'post',
+    async: false,
+    dataType: 'json',
+    success: function(response) {
+      if (response.code == 0) {
+        if(page == 1) {
+          $("#commentCount").html(response.count);
+        }
+        $.each(response.items,function(i,j){
+          var stamp = '';
+          if(j.stamp == 1){
+            stamp = '<span class="iconfont iconrepingx default-tag"></span>';
+          }
+          if(j.stamp == 2){
+            stamp = '<span class="iconfont icongonggao default-tag"></span>';
+          }
+          $("#commentList").append('<div class="comment-list-item"><div class="comment-list-header"><div class="comment-list-header-head-ico" style="background-image: url(&quot;'+j.userinfo.avatar+'?x-oss-process=image/resize,m_fill,h_50,w_50,limit_0&quot;);"></div><div class="comment-list-header-info"><div class="comment-list-header-name"><a href="javascript:;" class="nickName">'+j.userinfo.name+'</a></div><div class="comment-list-header-time">'+j.addTimeTitle+'</div></div></div><div class="comment-list-body"><div class="comment-list-body-content"><div class="comment-list-content-text">'+stamp+'<span><span>'+j.content+'</span></span></div></div><div class="img-area"></div><div class="comment-list-body-interaction"><a href="javascript:;" class="interaction-awsl"><div class="awsl-ico"></div><span class="interaction-text awsl-text">'+j.praiseCount+'</span></a></div><div class="comment-reply-input"></div></div></div>');
+        });
+        $("#commentPage").val(parseInt(page)+1);
+      }
+    }
+  });
+}
+function getQueryString(name) {
+  var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+  var r = window.location.search.substr(1).match(reg);
+  if (r != null) return unescape(r[2]); return null;
+}
+
+function danmuSend(text){
+  var color = "white";
+  var position = 0;
+  var time = $('#danmu').data("nowTime")+1;
+  var size = 1;
+  //var text_obj='{ "text":"'+text+'","color":"'+color+'","size":"'+size+'","position":"'+position+'","time":'+time+'}';
+  //$.post("stone.php",{danmu:text_obj});
+  var text_obj='{ "text":"'+text+'","color":"'+color+'","size":"'+size+'","position":"'+position+'","time":'+time+'}';
+  var new_obj=eval('('+text_obj+')');
+  $('#danmu').danmu("addDanmu",new_obj);
+}
+</script>
