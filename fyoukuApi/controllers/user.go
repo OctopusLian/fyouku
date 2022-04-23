@@ -19,8 +19,8 @@ type UserController struct {
 // @router /register/save [post]
 func (this *UserController) SaveRegister() {
 	var (
-		mobile   string
-		password string
+		mobile   string  //手机号
+		password string  //密码
 		err      error
 	)
 	mobile = this.GetString("mobile")
@@ -30,7 +30,7 @@ func (this *UserController) SaveRegister() {
 		this.Data["json"] = ReturnError(4001, "手机号不能为空")
 		this.ServeJSON()
 	}
-	isorno, _ := regexp.MatchString(`^1(3|4|5|7|8)[0-9]\d{8}$`, mobile)
+	isorno, _ := regexp.MatchString(`^1(3|4|5|7|8)[0-9]\d{8}$`, mobile)  //格式判断
 	if !isorno {
 		this.Data["json"] = ReturnError(4002, "手机号格式不正确")
 		this.ServeJSON()

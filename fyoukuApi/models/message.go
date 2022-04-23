@@ -1,3 +1,10 @@
+/*
+ * @Description:
+ * @Author: neozhang
+ * @Date: 2022-04-23 12:43:49
+ * @LastEditors: neozhang
+ * @LastEditTime: 2022-04-23 19:49:13
+ */
 package models
 
 import (
@@ -10,8 +17,8 @@ import (
 
 type Message struct {
 	Id      int
-	Content string
-	AddTime int64
+	Content string `gorm:"comment:'消息内容'"`
+	AddTime int64  `gorm:"comment:'添加时间'"`
 }
 
 type MessageUser struct {

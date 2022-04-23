@@ -20,11 +20,13 @@ type JsonStruct struct {
 	Count int64       `json:"count"`
 }
 
+//返回成功的格式
 func ReturnSuccess(code int, msg interface{}, items interface{}, count int64) (json *JsonStruct) {
 	json = &JsonStruct{Code: code, Msg: msg, Items: items, Count: count}
 	return
 }
 
+//返回失败的格式
 func ReturnError(code int, msg interface{}) (json *JsonStruct) {
 	json = &JsonStruct{Code: code, Msg: msg}
 	return

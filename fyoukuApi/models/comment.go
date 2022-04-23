@@ -1,3 +1,10 @@
+/*
+ * @Description:
+ * @Author: neozhang
+ * @Date: 2022-04-23 12:43:49
+ * @LastEditors: neozhang
+ * @LastEditTime: 2022-04-23 19:48:10
+ */
 package models
 
 import (
@@ -10,14 +17,14 @@ import (
 
 type Comment struct {
 	Id          int
-	Content     string
-	AddTime     int64
-	UserId      int
-	Stamp       int
-	Status      int
-	PraiseCount int
-	EpisodesId  int
-	VideoId     int
+	Content     string `gorm:"comment:'评论内容'"`
+	AddTime     int64  `gorm:"comment:'评论时间'"`
+	UserId      int    `gorm:"comment:'评论用户'"`
+	Stamp       int    `gorm:"comment:'状态0=未审核 1=审核通过'"`
+	Status      int    `gorm:"comment:'盖章1=热评2=公告'"`
+	PraiseCount int    `gorm:"comment:'点赞数'"`
+	EpisodesId  int    `gorm:"comment:'评论视频'"`
+	VideoId     int    `gorm:"comment:'所属视频'"`
 }
 
 func init() {

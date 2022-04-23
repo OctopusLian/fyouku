@@ -11,12 +11,12 @@ import (
 
 type User struct {
 	Id       int
-	Name     string
-	Password string
-	Status   int
-	AddTime  int64
-	Mobile   string
-	Avatar   string
+	Name     string `gorm:"comment:'用户名'"`
+	Password string `gorm:"comment:'密码'"`
+	Status   int    `gorm:"comment:'状态'"`
+	AddTime  int64  `gorm:"comment:'注册时间'"`
+	Mobile   string `gorm:"comment:'手机号'"`
+	Avatar   string `gorm:"comment:'头像'"`
 }
 type UserInfo struct {
 	Id      int    `json:"id"`

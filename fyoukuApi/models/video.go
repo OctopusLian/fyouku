@@ -14,21 +14,22 @@ import (
 
 type Video struct {
 	Id                 int
-	Title              string
-	SubTitle           string
-	AddTime            int64
-	Img                string
-	Img1               string
-	EpisodesCount      int
-	IsEnd              int
-	ChannelId          int
-	Status             int
-	RegionId           int
-	TypeId             int
-	EpisodesUpdateTime int64
-	Comment            int
-	UserId             int
-	IsRecommend        int
+	Title              string `gorm:"comment:'标题'"`
+	SubTitle           string `gorm:"comment:'副标题'"`
+	AddTime            int64  `gorm:"comment:'添加时间'"`
+	Img                string `gorm:"comment:'横版缩略图'"`
+	Img1               string `gorm:"comment:'竖版缩略图'"`
+	EpisodesCount      int    `gorm:"comment:'集数'"`
+	IsEnd              int    `gorm:"comment:'是否完结0=未完结 1=已完结'"`
+	ChannelId          int    `gorm:"comment:'所属频道'"`
+	Status             int    `gorm:"comment:''"`
+	RegionId           int    `gorm:"comment:'地区ID'"`
+	TypeId             int    `gorm:"comment:'频道类型ID'"`
+	EpisodesUpdateTime int64  `gorm:"comment:'集数更新时间'"`
+	Comment            int    `gorm:"comment:'评论数'"`
+	UserId             int    `gorm:"comment:'所属用户'"`
+	IsRecommend        int    `gorm:"comment:'1=推荐 0=否'"`
+	IsHot              int    `gorm:"comment:'1=正在热播'"`
 }
 type VideoData struct {
 	Id            int

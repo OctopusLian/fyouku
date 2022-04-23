@@ -1,3 +1,10 @@
+/*
+ * @Description:
+ * @Author: neozhang
+ * @Date: 2022-04-23 12:43:49
+ * @LastEditors: neozhang
+ * @LastEditTime: 2022-04-23 19:46:19
+ */
 package models
 
 import (
@@ -8,13 +15,13 @@ import (
 
 type Barrage struct {
 	Id          int
-	Content     string
-	CurrentTime int
-	AddTime     int64
-	UserId      int
-	Status      int
-	EpisodesId  int
-	VideoId     int
+	Content     string `gorm:"comment:'姓名'"`
+	CurrentTime int    `gorm:"comment:'视频当前播放时间'"`
+	AddTime     int64  `gorm:"comment:'评论时间'"`
+	UserId      int    `gorm:"comment:'评论用户id'"`
+	Status      int    `gorm:"comment:'状态0=未审核 1=审核通过'"`
+	EpisodesId  int    `gorm:"comment:'评论视频'"`
+	VideoId     int    `gorm:"comment:'所属视频'"`
 }
 
 type BarrageData struct {
