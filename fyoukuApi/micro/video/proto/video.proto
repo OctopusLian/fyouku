@@ -1,0 +1,51 @@
+syntax = "proto3"
+
+package proto;
+
+service VideoService {
+    rpc ChannelAdvert(RequestChannelAdvert) returns (ResponseChannelAdvert) {}
+    rpc ChannelHotList(RequestChannelHotList) returns (ResponseChannelHotList) {}
+}
+
+message RequestChannelAdvert {
+    string channelId = 1;
+}
+
+message ResponseChannelAdvert {
+    int64 code = 1;
+    string msg = 2;
+    repeated ChannelAdvertData items = 3;
+    int64 count = 4;
+}
+
+message ChannelAdvertData {
+    int64 id = 1;
+    string title = 2;
+    string subTitle = 3;
+    int64 addTime = 4;
+    string img = 5;
+    string url = 6;
+}
+
+message RequestChannelHotList {
+    string channelId = 1;
+}
+
+message ResponseChannelHotList {
+    int64 code = 1;
+    string msg = 2;
+    repeated ResponseChannelHotList items = 3;
+    int64 count = 4;
+}
+
+message ResponseChannelHotList {
+    int64 id = 1;
+    string title = 2;
+    string subTitle = 3;
+    int64 addTime = 4;
+    string img = 5;
+    string img1 = 6;
+    int64 episodesCount = 7;
+    int64 isEnd = 8;
+    int64 comment = 9;
+}

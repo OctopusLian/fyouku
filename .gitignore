@@ -1,1 +1,12 @@
+<<<<<<< HEAD
 *.DS_Store
+=======
+.vscode/
+.idea/
+fyouku/fyouku
+fyoukuApi/fyoukuApi
+*.tmp
+fyouku/fyoukuApi/mq/send
+fyouku/fyoukuApi/mq/comment
+fyouku/fyoukuApi/mq/top
+>>>>>>> master

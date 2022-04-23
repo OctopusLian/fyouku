@@ -71,7 +71,11 @@ type EpisodesApiData struct {
 func GetChannelHotList(channelId int) []Video {
 	var info []Video
 	req := httplib.Get(beego.AppConfig.String("apiurl") + "/channel/hot?channelId=" + strconv.Itoa(channelId))
+<<<<<<< HEAD
 	//req := httplib.Get(beego.AppConfig.String("microApi") + "/fyoukuapi/video/video/ChannelHotList?channelId=" + strconv.Itoa(channelId))
+=======
+	//req := httplib.Get(beego.AppConfig.String("microApi") + "/fyoukuApi/video/video/ChannelHotList?channelId=" + strconv.Itoa(channelId))
+>>>>>>> master
 	str, err := req.String()
 	if err != nil {
 		fmt.Println(err)
@@ -262,7 +266,11 @@ type AdvertApiData struct {
 func GetChannelAdvert(channelId int) []Advert {
 	var info []Advert
 	req := httplib.Get(beego.AppConfig.String("apiurl") + "/channel/advert?channelId=" + strconv.Itoa(channelId) + "")
+<<<<<<< HEAD
 	//req := httplib.Get(beego.AppConfig.String("microApi") + "/fyoukuapi/video/video/ChannelAdvert?channelId=" + strconv.Itoa(channelId) + "")
+=======
+	//req := httplib.Get(beego.AppConfig.String("microApi") + "/fyoukuApi/video/video/ChannelAdvert?channelId=" + strconv.Itoa(channelId) + "")
+>>>>>>> master
 	str, err := req.String()
 	if err != nil {
 		fmt.Println(err)

@@ -17,7 +17,11 @@ type UserInfo struct {
 //判断用户名密码是否正确
 func IsMobileLogin(mobile string, password string) string {
 	req := httplib.Post(beego.AppConfig.String("apiurl") + "/login/do")
+<<<<<<< HEAD
 	//req := httplib.Post(beego.AppConfig.String("microApi") + "/fyoukuapi/user/user/LoginDo")
+=======
+	//req := httplib.Post(beego.AppConfig.String("microApi") + "/fyoukuApi/user/user/LoginDo")
+>>>>>>> master
 	req.Param("mobile", mobile)
 	req.Param("password", password)
 	str, err := req.String()
