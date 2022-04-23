@@ -22,7 +22,7 @@ type Video struct {
 	EpisodesCount      int    `gorm:"comment:'集数'"`
 	IsEnd              int    `gorm:"comment:'是否完结0=未完结 1=已完结'"`
 	ChannelId          int    `gorm:"comment:'所属频道'"`
-	Status             int    `gorm:"comment:''"`
+	Status             int    `gorm:"comment:'状态,-1=下架,0=审核中,1=正常'"`
 	RegionId           int    `gorm:"comment:'地区ID'"`
 	TypeId             int    `gorm:"comment:'频道类型ID'"`
 	EpisodesUpdateTime int64  `gorm:"comment:'集数更新时间'"`
