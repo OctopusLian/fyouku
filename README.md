@@ -3,9 +3,21 @@
  * @Author: neozhang
  * @Date: 2022-01-06 23:46:07
  * @LastEditors: neozhang
- * @LastEditTime: 2022-03-13 16:50:07
+ * @LastEditTime: 2022-04-23 11:44:32
 -->
-# 慕优酷网  
+# 慕优酷网站  
 
-[从1到N实战Go改造PHP“慕优酷”](https://coding.imooc.com/class/443.html)  
+以 “优酷网”为蓝本 ，基于PHP构建“慕优酷网”， 后进行Go改造。  
+
+## 技术栈  
+
+- Go  
+- PHP  
+- MySQL
+- Redis  
+- RabbitMQ  
+- Elasticsearch  
+
+![](res/project.png)  
+
 [电子书文档地址](http://book.qingwakong.com/fyouku/4.9.html)  
